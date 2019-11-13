@@ -1,0 +1,96 @@
+#Options
+GenerateScanner = true
+GenerateParser = true
+Language = Java
+ScannerName = Lexico
+ParserName = Sintatico
+SemanticName = Semantico
+ScannerCaseSensitive = true
+ScannerTable = Full
+Input = Stream
+Parser = LL
+#RegularDefinitions
+letras:[a-zA-Z]
+numeros:[0-9]
+espaco:[\ \t\n\r]
+comentario: "(*" [^ "*" ]* "*)"
+#Tokens
+id:{letras}({letras}|{numeros}| _ )*
+
+//num : {numeros}+ ^ [^ {letras} ]
+
+//pontuação
+"("
+")"
+";"
+
+//ignorar espaços em branco e comentários
+ : {WS}*
+ :! {COMMENT}
+
+//*palavras chave*//
+
+begin = id : "begin"
+end   = id : "end"
+if    = id : "if"
+then  = id : "then"
+else  = id : "else"
+while = id : "while"
+do    = id : "do"
+write = id : "write"
+
+
+
+if   = var: "if"
+then = var: "then"
+else = var: "else"
+int = var: "int"
+const:{numeros}+
+:{espaco}
+mult: "*"
+soma: "+"
+v: ","
+print = var: "print"
+ap: "("
+fp: ")"
+pv: ";"
+ac: "{"
+fc: "}"
+maior: ">"
+recebe: "="
+igual: "=="
+#NonTerminals
+//<S>
+//<meio>
+//<comando>
+//<declaracao>
+//<atribuicao>
+//<atribuicaol>
+//<lista_var>
+//<lista_varl> 
+//<IF>
+//<PRINT>
+//<expressao_logica>
+//<T>
+//<Tlinha>
+//<fatr>
+//<fatrd>
+#Grammar
+//<S> ::= <comando> <meio>;
+//<meio> ::= <S> |î;
+//<comando> ::= <declaracao>|<IF>|<atribuicao>|<PRINT>;
+//<declaracao> ::= int <lista_var> pv;
+//<lista_var> ::= var <lista_varl>;
+//<lista_varl> ::= v var | î;
+//<IF> ::= if ap <expressao_logica> fp then ac <comando>;
+//<expressao_logica> ::= <T> <Tlinha>; 
+//<Tlinha> ::= igual <T> | maior <T>;
+//<T> ::= var | const; 
+//<atribuicao> ::= var recebe <atribuicaol> ;
+//<atribuicaol> ::= ap var mult var fp soma const pv <fatr>| var soma const pv <fatr>| const pv <fatr>;
+//<fatr> ::= fc <fatrd> |î;
+//<fatrd> ::= else ac | î;
+//<PRINT> ::= print ap var fp;
+
+
+
