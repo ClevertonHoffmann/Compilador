@@ -8,11 +8,11 @@ import java.util.ArrayList;
  */
 public class TokenFactoryList{
     
-    private final ArrayList<InterfaceFlyweight> listatokens;
+    private ArrayList<InterfaceFlyweight> listatokens;
         
     public TokenFactoryList() {
         listatokens = new ArrayList<InterfaceFlyweight>();
-        listatokens.add(new Flyweight(" "," ",0));
+       // listatokens.add(new Flyweight(" "," ",0));
     }
 
     public void setListatokens(String t, String l, int p) {

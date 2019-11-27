@@ -15,45 +15,44 @@ import java.util.Hashtable;
  */
 public class TabelasGOTOeACTION {
 
-    private HashMap<String, String> h2; 
-    private HashMap<Integer, HashMap> ACTION;
+    private ArrayList<HashMap> ACTION;
     private HashMap<Integer, Integer> GOTO;
 
     public TabelasGOTOeACTION() {
-        this.h2 = new HashMap();
-        this.ACTION = new HashMap();
+        this.ACTION = new ArrayList();
         this.GOTO = new HashMap();
         this.tabelaACTION();
         this.tabelaGOTO();
     }
    
     public void tabelaACTION(){
-
+        HashMap<String, String> h2 = new HashMap(); 
+       
         h2.put("a", "s2");
         h2.put("c", "s3");
-        ACTION.put(0,h2);
-         
-        h2.clear();
+        ACTION.add(h2);
+        
+        h2 = new HashMap();
         h2.put("$", "acc");
-        ACTION.put(1,h2);
+        ACTION.add(h2);
         
-        h2.clear();
+        h2 = new HashMap();
         h2.put("a", "s2");
         h2.put("c", "s3");
-        ACTION.put(2,h2);
+        ACTION.add(h2);
         
-        h2.clear();
+        h2 = new HashMap();
         h2.put("b", "r1");
-        ACTION.put(3,h2);
+        ACTION.add(h2);
         
-        h2.clear();
+        h2 = new HashMap();
         h2.put("b", "s5");
-        ACTION.put(4,h2);
+        ACTION.add(h2);
         
-        h2.clear();
+        h2 = new HashMap();
         h2.put("$", "r3");
         h2.put("b", "r3");
-        ACTION.put(5, h2);
+        ACTION.add(h2);
         
     }
     
@@ -64,7 +63,7 @@ public class TabelasGOTOeACTION {
         
     }
 
-    public HashMap<Integer, HashMap> getACTION() {
+    public ArrayList  <HashMap> getACTION() {
         return ACTION;
     }
 
