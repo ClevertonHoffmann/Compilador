@@ -16,17 +16,25 @@ espaco:[\ \t\n\r]
 comentario: "(*" [^ "*" ]* "*)"
 #Tokens
 id:{letras}({letras}|{numeros}| _ )*
-
-//num : {numeros}+ ^ [^ {letras} ]
+num: {numeros}+ ^ [^ {letras} ]
 
 //pontuação
-"("
-")"
-";"
+simb_mult: "*"
+simb_soma: "+"
+simb_v: ","
+simb_apar: "("
+simb_fpar: ")"
+simb_pv: ";"
+simb_acol: "{"
+simb_fcol: "}"
+simb_maior: ">"
+simb_atrib: "="
+simb_igual: "=="
+simb_dp: ":"
 
 //ignorar espaços em branco e comentários
- : {WS}*
- :! {COMMENT}
+:{espaco}
+:! {comentario}
 
 //*palavras chave*//
 
@@ -38,59 +46,51 @@ else  = id : "else"
 while = id : "while"
 do    = id : "do"
 write = id : "write"
-
-
-
-if   = var: "if"
-then = var: "then"
-else = var: "else"
-int = var: "int"
+int   = id : "int"
+print = id : "print"
 const:{numeros}+
-:{espaco}
-mult: "*"
-soma: "+"
-v: ","
-print = var: "print"
-ap: "("
-fp: ")"
-pv: ";"
-ac: "{"
-fc: "}"
-maior: ">"
-recebe: "="
-igual: "=="
+
+
+
+
+
 #NonTerminals
-//<S>
-//<meio>
-//<comando>
-//<declaracao>
-//<atribuicao>
-//<atribuicaol>
-//<lista_var>
-//<lista_varl> 
-//<IF>
-//<PRINT>
-//<expressao_logica>
-//<T>
-//<Tlinha>
-//<fatr>
-//<fatrd>
+<S1>
+<S>
+<NomePrograma>
+<meio>
+
+<comando>
+<declaracao>
+<atribuicao>
+<atribuicaol>
+<lista_var>
+<lista_varl> 
+<IF>
+<PRINT>
+<expressao_logica>
+<T>
+<Tlinha>
+<fatr>
+<fatrd>
 #Grammar
-//<S> ::= <comando> <meio>;
-//<meio> ::= <S> |î;
-//<comando> ::= <declaracao>|<IF>|<atribuicao>|<PRINT>;
-//<declaracao> ::= int <lista_var> pv;
-//<lista_var> ::= var <lista_varl>;
-//<lista_varl> ::= v var | î;
-//<IF> ::= if ap <expressao_logica> fp then ac <comando>;
-//<expressao_logica> ::= <T> <Tlinha>; 
-//<Tlinha> ::= igual <T> | maior <T>;
-//<T> ::= var | const; 
-//<atribuicao> ::= var recebe <atribuicaol> ;
-//<atribuicaol> ::= ap var mult var fp soma const pv <fatr>| var soma const pv <fatr>| const pv <fatr>;
-//<fatr> ::= fc <fatrd> |î;
-//<fatrd> ::= else ac | î;
-//<PRINT> ::= print ap var fp;
+<S>::= <NomePrograma> <comando> <meio>;
+<NomePrograma>::= id simb_dp;
+<meio> ::= <S> |î;
+
+<comando> ::= <declaracao>|<IF>|<atribuicao>|<PRINT>;
+<declaracao> ::= int <lista_var> simb_pv;
+<lista_var> ::= id <lista_varl>;
+<lista_varl> ::= simb_v id | î;
+<IF> ::= if simb_apar <expressao_logica> simb_fpar then simb_acol <comando>;
+<expressao_logica> ::= <T> <Tlinha>; 
+<Tlinha> ::= simb_igual <T> | simb_maior <T>;
+<T> ::= id | const; 
+<atribuicao> ::=id simb_atrib <atribuicaol> ;
+<atribuicaol> ::= ap id simb_mult id simb_fpar simb_soma const simb_pv <fatr>| id simb_soma const simb_pv <fatr>| const simb_pv <fatr>;
+<fatr> ::= simb_fcol <fatrd> |î;
+<fatrd> ::= else simb_acol | î;
+<PRINT> ::= print simb_apar id simb_fpar;
 
 
 
