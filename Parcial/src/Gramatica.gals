@@ -8,7 +8,7 @@ SemanticName = Semantico
 ScannerCaseSensitive = true
 ScannerTable = Full
 Input = Stream
-Parser = SLR
+Parser = LL
 #RegularDefinitions
 letras:[a-zA-Z]
 numeros:[0-9]
@@ -17,7 +17,7 @@ comentario: "(*" [^ "*" ]* "*)"
 #Tokens
 id:{letras}({letras}|{numeros}| _ )*
 const:{numeros}+
-
+real: {numeros}(".")*{numeros}
 //pontuação
 v: ","
 ap: "("
@@ -51,12 +51,9 @@ if      = id : "if"
 then    = id : "then"
 else    = id : "else"
 while   = id : "while"
-do      = id : "do"
-write   = id : "write"
-print   = id : "print"
-for     = id : "for"
 begin   = id : "begin"
 end     = id : "end"
+for     = id : "for"
 #NonTerminals
 <S>
 <INICIO>
@@ -64,77 +61,38 @@ end     = id : "end"
 <FIM>
 <BLOCO>
 <MEIO>
-<MEIOL>
 <DECL>
 <COND>
 <LIST>
 <LISTL>
 <AT>
-<AT1>
+<ATL>
 <COMP>
 <COMP1>
 <EXP>
-//<NomePrograma>
-//<meio>
-//<comando>
-//<declaracao>
-//<atribuicao>
-//<atribuicaol>
-//<lista_var>
-//<lista_varl> 
-//<IF>
-//<PRINT>
-//<WHILE>
-//<expressao_logica>
-//<T>
-//<Tlinha>
-//<fatr>
-//<fatrd>
+<LACO>
+<AUX>
+
 #Grammar
+//Necessário declarar o nome do programa Begin e End
 <S>::= <INICIO> <CODIGO> <FIM>;
 <INICIO>::= id dp begin;
 <FIM>::= end;
-<CODIGO>::= ac <BLOCO> fc;
-<BLOCO>::= <MEIO> <BLOCO> | î;
-<MEIO>::= id <MEIOL> | <COND>; 
-<MEIOL>::= id <DECL> | at <AT>;
-<DECL>::= pv | v <MEIOL> | î;
-<AT>::= <AT1> pv;
-<AT1>::= id <EXP>|const <EXP>;
-<EXP>::= soma <AT1>| mult <AT1>| div <AT1>| subt <AT1>|î;
-//condição
-<COND>::= if ap <COMP> fp then; 
-<COMP>::= id <COMP1> ;
-<COMP1>::= igual id| maior id| menor id| maiorig id| menorig id |î;
-//laços
-//<LACO>::=
-//<EXP>::= 
-
-
-
-
-
-//id <comando> <meio>;
-//<meio> ::= <S> |î;
-//<comando> ::= <declaracao>|<atribuicao>|<IF>|<WHILE>|<PRINT>;
-
-//<declaracao> ::= tip <lista_var> pv;
-//<lista_var> ::= id <lista_varl>;
-//<lista_varl> ::= v id | î;
-//<atribuicao> ::=id at <atribuicaol> ;
-
-
-//<atribuicaol> ::= ap id mult id fp soma const pv <fatr>| id soma const pv <fatr>| const pv <fatr>;
-//<fatr> ::= fc <fatrd> |î;
-//<fatrd> ::= else ac | î;
-
-//<IF> ::= if ap <expressao_logica> fp then ac <comando>;
-//<expressao_logica> ::= <T> <Tlinha>; 
-//<Tlinha> ::= igual <T> | maior <T>;
-//<T> ::= id | const; 
-
-
-//<PRINT> ::= print ap id fp;
-
+//Código e Blocos
+<CODIGO>::= ac <BLOCO> fc <CODIGO>| î;
+<BLOCO>::= id <MEIO> <BLOCO> | <COND> | <LACO>| î;
+<MEIO>::= id <DECL> | at <AT>;
+<DECL>::= pv | v <MEIO> | î;
+//atribuição, expressões
+<AT>::= <ATL> pv;
+<ATL>::= <AUX> <EXP>;
+<EXP>::= soma <ATL>| mult <ATL>| div <ATL>| subt <ATL>|î;
+//condição if then e else, comparação
+<COND>::= if ap <COMP> fp then <CODIGO> <BLOCO> | else <CODIGO> <BLOCO>; 
+<COMP>::= <AUX> <COMP1> ;
+<COMP1>::= igual <AUX>| maior <AUX>| menor <AUX>| maiorig <AUX>| menorig <AUX> |î; 
+<AUX>::= const | id | real;
+//laçoS de repetição, while e for
+<LACO>::= while ap <COMP> fp <CODIGO> | for ap id at <AT> <COMP> pv <AUX> at <ATL>  fp <CODIGO>; 
 
 
