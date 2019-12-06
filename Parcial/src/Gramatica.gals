@@ -8,7 +8,7 @@ SemanticName = Semantico
 ScannerCaseSensitive = true
 ScannerTable = Full
 Input = Stream
-Parser = LL
+Parser = SLR
 #RegularDefinitions
 letras:[a-zA-Z]
 numeros:[0-9]
@@ -16,81 +16,125 @@ espaco:[\ \t\n\r]
 comentario: "(*" [^ "*" ]* "*)"
 #Tokens
 id:{letras}({letras}|{numeros}| _ )*
-num: {numeros}+ ^ [^ {letras} ]
+const:{numeros}+
 
 //pontuação
-simb_mult: "*"
-simb_soma: "+"
-simb_v: ","
-simb_apar: "("
-simb_fpar: ")"
-simb_pv: ";"
-simb_acol: "{"
-simb_fcol: "}"
-simb_maior: ">"
-simb_atrib: "="
-simb_igual: "=="
-simb_dp: ":"
+v: ","
+ap: "("
+fp: ")"
+pv: ";"
+ac: "{"
+fc: "}"
+dp: ":" 
+at: "=" 
+
+//comparadores
+maior: ">"
+menor: "<"
+menorig: "<="
+maiorig: ">="
+igual: "=="
+dif: "!="
+
+//operadores
+mult: "*"
+soma: "+"
+subt: "-"
+div: "/"
 
 //ignorar espaços em branco e comentários
 :{espaco}
-:! {comentario}
 
 //*palavras chave*//
 
-begin = id : "begin"
-end   = id : "end"
-if    = id : "if"
-then  = id : "then"
-else  = id : "else"
-while = id : "while"
-do    = id : "do"
-write = id : "write"
-int   = id : "int"
-print = id : "print"
-const:{numeros}+
-
-
-
-
-
+if      = id : "if"
+then    = id : "then"
+else    = id : "else"
+while   = id : "while"
+do      = id : "do"
+write   = id : "write"
+print   = id : "print"
+for     = id : "for"
+begin   = id : "begin"
+end     = id : "end"
 #NonTerminals
-<S1>
 <S>
-<NomePrograma>
-<meio>
-
-<comando>
-<declaracao>
-<atribuicao>
-<atribuicaol>
-<lista_var>
-<lista_varl> 
-<IF>
-<PRINT>
-<expressao_logica>
-<T>
-<Tlinha>
-<fatr>
-<fatrd>
+<INICIO>
+<CODIGO>
+<FIM>
+<BLOCO>
+<MEIO>
+<MEIOL>
+<DECL>
+<COND>
+<LIST>
+<LISTL>
+<AT>
+<AT1>
+<COMP>
+<COMP1>
+<EXP>
+//<NomePrograma>
+//<meio>
+//<comando>
+//<declaracao>
+//<atribuicao>
+//<atribuicaol>
+//<lista_var>
+//<lista_varl> 
+//<IF>
+//<PRINT>
+//<WHILE>
+//<expressao_logica>
+//<T>
+//<Tlinha>
+//<fatr>
+//<fatrd>
 #Grammar
-<S>::= <NomePrograma> <comando> <meio>;
-<NomePrograma>::= id simb_dp;
-<meio> ::= <S> |î;
+<S>::= <INICIO> <CODIGO> <FIM>;
+<INICIO>::= id dp begin;
+<FIM>::= end;
+<CODIGO>::= ac <BLOCO> fc;
+<BLOCO>::= <MEIO> <BLOCO> | î;
+<MEIO>::= id <MEIOL> | <COND>; 
+<MEIOL>::= id <DECL> | at <AT>;
+<DECL>::= pv | v <MEIOL> | î;
+<AT>::= <AT1> pv;
+<AT1>::= id <EXP>|const <EXP>;
+<EXP>::= soma <AT1>| mult <AT1>| div <AT1>| subt <AT1>|î;
+//condição
+<COND>::= if ap <COMP> fp then; 
+<COMP>::= id <COMP1> ;
+<COMP1>::= igual id| maior id| menor id| maiorig id| menorig id |î;
+//laços
+//<LACO>::=
+//<EXP>::= 
 
-<comando> ::= <declaracao>|<IF>|<atribuicao>|<PRINT>;
-<declaracao> ::= int <lista_var> simb_pv;
-<lista_var> ::= id <lista_varl>;
-<lista_varl> ::= simb_v id | î;
-<IF> ::= if simb_apar <expressao_logica> simb_fpar then simb_acol <comando>;
-<expressao_logica> ::= <T> <Tlinha>; 
-<Tlinha> ::= simb_igual <T> | simb_maior <T>;
-<T> ::= id | const; 
-<atribuicao> ::=id simb_atrib <atribuicaol> ;
-<atribuicaol> ::= ap id simb_mult id simb_fpar simb_soma const simb_pv <fatr>| id simb_soma const simb_pv <fatr>| const simb_pv <fatr>;
-<fatr> ::= simb_fcol <fatrd> |î;
-<fatrd> ::= else simb_acol | î;
-<PRINT> ::= print simb_apar id simb_fpar;
+
+
+
+
+//id <comando> <meio>;
+//<meio> ::= <S> |î;
+//<comando> ::= <declaracao>|<atribuicao>|<IF>|<WHILE>|<PRINT>;
+
+//<declaracao> ::= tip <lista_var> pv;
+//<lista_var> ::= id <lista_varl>;
+//<lista_varl> ::= v id | î;
+//<atribuicao> ::=id at <atribuicaol> ;
+
+
+//<atribuicaol> ::= ap id mult id fp soma const pv <fatr>| id soma const pv <fatr>| const pv <fatr>;
+//<fatr> ::= fc <fatrd> |î;
+//<fatrd> ::= else ac | î;
+
+//<IF> ::= if ap <expressao_logica> fp then ac <comando>;
+//<expressao_logica> ::= <T> <Tlinha>; 
+//<Tlinha> ::= igual <T> | maior <T>;
+//<T> ::= id | const; 
+
+
+//<PRINT> ::= print ap id fp;
 
 
 
