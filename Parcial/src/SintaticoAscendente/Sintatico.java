@@ -5,7 +5,6 @@
  */
 package SintaticoAscendente;
 import Token.TokenFactoryList;
-import java.util.Hashtable;
 import java.util.Stack;
 
 /**

@@ -20,26 +20,27 @@ public class Main {
      */
     public static void main(String[] args) {
       
-//	Scanner read = new Scanner(System.in);
-//        System.out.println("Digite o código a ser analisado!");
-//	String texto = read.nextLine();
-//	texto = texto + " ";
-//        Lexico l = new Lexico(texto);
-//        l.iniciaAnalise();
+    Scanner read = new Scanner(System.in);
+    System.out.println("Digite o código a ser analisado!");
+    String texto = read.nextLine();
+    texto = texto + " ";
+    Lexico l = new Lexico(texto);
+    l.iniciaAnalise();
+    
         
-        
-        TokenFactoryList t = new TokenFactoryList();
-        
-        t.setListatokens("a", "", 0);
-        t.setListatokens("a", "", 1);
-        t.setListatokens("c", "", 2);
-        t.setListatokens("b", "", 3);
-        t.setListatokens("b", "", 4);
-        t.setListatokens("$", "", 5);
-                
-        Sintatico s = new Sintatico(t);
-        s.analisador();
-        
+//        
+//        TokenFactoryList t = new TokenFactoryList();
+//        
+//        t.setListatokens("a", "", 0);
+//        t.setListatokens("a", "", 1);
+//        t.setListatokens("c", "", 2);
+//        t.setListatokens("b", "", 3);
+//        t.setListatokens("b", "", 4);
+//        t.setListatokens("$", "", 5);
+//                
+//        Sintatico s = new Sintatico(t);
+//        s.analisador();
+
     }
     
 }
