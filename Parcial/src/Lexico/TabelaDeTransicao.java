@@ -16,12 +16,15 @@ public class TabelaDeTransicao {
     
     private ArrayList<HashMap> T;
     private HashMap<Integer, String> ts ;
+    private HashMap<String, String> pReservada ;
     
     public TabelaDeTransicao(){
         T = new ArrayList();
         ts = new HashMap();
+        pReservada = new HashMap();
         this.constroiTabela();
         this.constroiTabelaTokens();
+        this.palavrasReservadas();
     }
 
     public ArrayList<HashMap> getT() {
@@ -34,6 +37,14 @@ public class TabelaDeTransicao {
 
     public HashMap<Integer, String> getTs() {
         return ts;
+    }
+
+    public HashMap<String, String> getpReservada() {
+        return pReservada;
+    }
+
+    public void setpReservada(HashMap<String, String> pReservada) {
+        this.pReservada = pReservada;
     }
     
     public void constroiTabela(){
@@ -2820,6 +2831,18 @@ public class TabelaDeTransicao {
         ts.put(24, "maiorig");
         ts.put(25, "real");
         ts.put(26, "const");
+        
+    }
+    
+    public void palavrasReservadas(){
+        
+        pReservada.put("if", "if");
+        pReservada.put("then", "then");
+        pReservada.put("else", "else");
+        pReservada.put("while", "while");
+        pReservada.put("begin", "begin");
+        pReservada.put("end", "end");
+        pReservada.put("for", "for");
         
     }
        

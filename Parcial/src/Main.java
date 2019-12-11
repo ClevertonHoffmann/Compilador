@@ -29,7 +29,7 @@ public class Main {
     Sintatico s = new Sintatico(l.getT());
     s.analisador();
         
-//        
+        
 //        TokenFactoryList t = new TokenFactoryList();
 //        
 //        t.setListatokens("a", "", 0);

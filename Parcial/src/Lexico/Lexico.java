@@ -48,8 +48,14 @@ public class Lexico {
                             .concat(" Posição: ".concat(String.valueOf(k)))
                             .concat(" Token: ").concat(tab.getTs().get(q))
                             .concat(" Lexema: ").concat(build.toString())); 
-                t.setListatokens(tab.getTs().get(q), build.toString(), qntTokens);
+                if(!build.toString().equals(" ")){ //Não salva os espaços na lista de tokens      
+                   if(tab.getpReservada().containsValue(build.toString())){
+                       t.setListatokens(build.toString(), build.toString(), qntTokens);
+                   }else{
+                       t.setListatokens(tab.getTs().get(q), build.toString(), qntTokens);
+                   }                 
                 qntTokens++;
+                }
                 this.build = new StringBuilder();
                 q = 0;
             //Regeita caractere não identificado 
