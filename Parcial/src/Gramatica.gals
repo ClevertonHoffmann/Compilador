@@ -8,7 +8,7 @@ SemanticName = Semantico
 ScannerCaseSensitive = true
 ScannerTable = Full
 Input = Stream
-Parser = LL
+Parser = SLR
 #RegularDefinitions
 letras:[a-zA-Z]
 numeros:[0-9]
@@ -34,7 +34,6 @@ menor: "<"
 menorig: "<="
 maiorig: ">="
 igual: "=="
-dif: "!="
 
 //operadores
 mult: "*"
@@ -63,8 +62,6 @@ for     = id : "for"
 <MEIO>
 <DECL>
 <COND>
-<LIST>
-<LISTL>
 <AT>
 <ATL>
 <COMP>
@@ -92,7 +89,7 @@ for     = id : "for"
 <COMP>::= <AUX> <COMP1> ;
 <COMP1>::= igual <AUX>| maior <AUX>| menor <AUX>| maiorig <AUX>| menorig <AUX> |î; 
 <AUX>::= const | id | real;
-//laçoS de repetição, while e for
-<LACO>::= while ap <COMP> fp <CODIGO> | for ap id at <AT> <COMP> pv <AUX> at <ATL>  fp <CODIGO>; 
+//laçoS de repetição, while e for.
+<LACO>::= while ap <COMP> fp <CODIGO> <BLOCO>| for ap id at <AT> <COMP> pv <AUX> at <ATL>  fp <CODIGO> <BLOCO>; 
 
 

@@ -35,8 +35,8 @@ public class Lexico {
     public ArrayList iniciaAnalise(){
         int k = 0;
         while (count>0){
+            try{
             //Aceita o caractere e avança uma posição na entrada
-          //  System.out.println("Estado: ".concat(String.valueOf(q)));
             if(!tab.getT().get(q).get(separado[k]).equals(-1)){ 
                 build.append(separado[k]);//Concatena os caracteres até formar um token
                 q = (int) tab.getT().get(q).get(separado[k]);  //Seta o estado presente na tabela
@@ -58,7 +58,14 @@ public class Lexico {
                                     .concat(" Posição: ").concat(String.valueOf(k))
                                     .concat(" Token: ").concat("Erro Léxico")
                                     .concat(" Lexema: ").concat(separado[k]).concat("Caractere não esperado"));
-            }         
+                count--;
+                k++;
+            }
+            } catch(Exception e){
+                System.out.println(e.getMessage());
+                System.out.println("Estado não encontrado");
+                break;
+            }
         }
         
         return t.getListatokens();

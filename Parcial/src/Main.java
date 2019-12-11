@@ -26,7 +26,8 @@ public class Main {
     texto = texto + " ";
     Lexico l = new Lexico(texto);
     l.iniciaAnalise();
-    
+    Sintatico s = new Sintatico(l.getT());
+    s.analisador();
         
 //        
 //        TokenFactoryList t = new TokenFactoryList();
