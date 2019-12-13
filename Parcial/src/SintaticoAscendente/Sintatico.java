@@ -26,8 +26,11 @@ public class Sintatico {
         p.push("$");
         p.push(0);
         int i = 0;
+        listaTok.setListatokens("$", "$", listaTok.getListatokens().size());
         while(true){
             try{
+                System.out.println(p);
+                System.out.println(listaTok.getListatokens().get(i).getToken().getTok());
                 if(((String) t.getACTION().get(
                         (int)p.peek() //pega o último elemento da pilha
                         ).get(
@@ -36,20 +39,22 @@ public class Sintatico {
                     
                    p.push(Integer.parseInt(((String) t.getACTION().get((int)p.peek()).get( //empilha na pilha
                         listaTok.getListatokens().get(i).getToken().getTok() //Token entrada
-                        )).substring(1, 2)));
+                        )).substring(1)));
                    i++;
+                   System.out.println(p);
                 }else if(((String) t.getACTION().get((int)p.peek()).get(
                         listaTok.getListatokens().get(i).getToken().getTok() //Token entrada
                         )).substring(0, 1).equals("r")){ //reduce
                     
                     int aux = Integer.parseInt(((String) t.getACTION().get((int)p.peek()).get(
                             listaTok.getListatokens().get(i).getToken().getTok() //Token entrada
-                            )).substring(1, 2));
+                            )).substring(1));
                     for(int j = 0; j<aux; j++){
                         p.pop();
+                        System.out.println(p);
                     }
                     p.push(t.getGOTO().get((int)p.peek()));
-                    
+                    System.out.println(p);
                 }else if (((String) t.getACTION().get((int)p.peek()).get(
                         listaTok.getListatokens().get(i).getToken().getTok() //Token entrada
                         )).equals("acc")){ //fim da gramática

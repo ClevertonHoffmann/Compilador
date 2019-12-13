@@ -43,16 +43,20 @@ public class Lexico {
                 count--;
                 k++;                
             //Aceita o Token
-            }else if(!tab.getTs().get(q).equals("?")){ 
-                System.out.println("Estado: ".concat(String.valueOf(q))
-                            .concat(" Posição: ".concat(String.valueOf(k)))
-                            .concat(" Token: ").concat(tab.getTs().get(q))
-                            .concat(" Lexema: ").concat(build.toString())); 
+            }else if(!tab.getTs().get(q).equals("?")){  
                 if(!build.toString().equals(" ")){ //Não salva os espaços na lista de tokens      
-                   if(tab.getpReservada().containsValue(build.toString())){
+                   if(tab.getpReservada().containsValue(build.toString())){ //Verifica se contém palavra reservada
                        t.setListatokens(build.toString(), build.toString(), qntTokens);
+                       System.out.println("Estado: ".concat(String.valueOf(q))
+                            .concat(" Posição: ".concat(String.valueOf(k)))
+                            .concat(" Token: ").concat(build.toString())
+                            .concat(" Lexema: ").concat(build.toString()));
                    }else{
                        t.setListatokens(tab.getTs().get(q), build.toString(), qntTokens);
+                       System.out.println("Estado: ".concat(String.valueOf(q))
+                            .concat(" Posição: ".concat(String.valueOf(k)))
+                            .concat(" Token: ").concat(tab.getTs().get(q))
+                            .concat(" Lexema: ").concat(build.toString()));
                    }                 
                 qntTokens++;
                 }

@@ -26,6 +26,7 @@ public class Main {
     texto = texto + " ";
     Lexico l = new Lexico(texto);
     l.iniciaAnalise();
+    System.out.println(l.getT());
     Sintatico s = new Sintatico(l.getT());
     s.analisador();
         
