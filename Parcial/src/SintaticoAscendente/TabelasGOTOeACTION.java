@@ -36,7 +36,7 @@ public class TabelasGOTOeACTION {
         h2.put("$", "acc");
         ACTION.add(h2);
         
-        //Estado 2 - <INICIO>
+        //Estado 2 - <INICIO> 
         h2 = new HashMap();
         h2.put("end","r0");
         h2.put("ac", "s5");
@@ -59,7 +59,7 @@ public class TabelasGOTOeACTION {
         h2.put("end","r0");
         ACTION.add(h2);
         
-        //Estado 5 - ac
+        //Estado 5 - ac ///INICIANDO ANALISE
         h2 = new HashMap();
         h2.put("fc","r0"); 
         h2.put("id","s10");
@@ -92,10 +92,13 @@ public class TabelasGOTOeACTION {
         h2.put("fc","s18");
         ACTION.add(h2);
         
-        //Estado 10  ///INICIANDO ANALISE
+        //Estado 10  
         h2 = new HashMap();
+        h2.put("if", "r0");
+        h2.put("while", "r0");
+        h2.put("else", "r0");
+        h2.put("else", "r0");
         h2.put("id","s20");
-        
         h2.put("at","s21");
         ACTION.add(h2);
         
@@ -149,12 +152,20 @@ public class TabelasGOTOeACTION {
         
         //Estado 19
         h2 = new HashMap();
-        h2.put("end","r0");
+        h2.put("fc","r2");
+        h2.put("if", "");
+        h2.put("else", "");
+        h2.put("while", "");
+        h2.put("for", "");
+        
+        
         ACTION.add(h2);
         
         //Estado 20
         h2 = new HashMap();
-        h2.put("end","r0");
+        h2.put("pv","s29");
+        h2.put("v", "s30");
+        h2.put("fc","r1");
         ACTION.add(h2);
         
         //Estado 21
@@ -186,17 +197,111 @@ public class TabelasGOTOeACTION {
         h2 = new HashMap();
         h2.put("end","r4");
         ACTION.add(h2);
+        
+        //Estado 27
+        h2 = new HashMap();
+        h2.put("end","r4");
+        ACTION.add(h2);
+        
+        //Estado 28
+        h2 = new HashMap();
+        h2.put("","");
+        ACTION.add(h2);
+        
+        //Estado 29 - OK
+        h2 = new HashMap();
+        h2.put("fc","r2");
+        ACTION.add(h2);
+        
+        //Estado 30 - OK
+        h2 = new HashMap(); 
+        h2.put("id","s20");
+        h2.put("at","s20");
+        ACTION.add(h2);
+        
+        //Estado 31
+        h2 = new HashMap();
+        h2.put("id","s20");
+        h2.put("at","s20");
+        ACTION.add(h2);
+        
+        //Estado 32
+        h2 = new HashMap();
+        h2.put("id","s20");
+        h2.put("at","s20");
+        ACTION.add(h2);
+        
+        //Estado 33
+        h2 = new HashMap();
+        h2.put("id","s20");
+        h2.put("at","s20");
+        ACTION.add(h2);
+        
+         //Estado 34
+        h2 = new HashMap();
+        h2.put("id","s20");
+        h2.put("at","s20");
+        ACTION.add(h2);
+        
+        //Estado 35
+        h2 = new HashMap();
+        h2.put("id","s20");
+        h2.put("at","s20");
+        ACTION.add(h2);
+        
+        //Estado 36
+        h2 = new HashMap();
+        h2.put("id","s20");
+        h2.put("at","s20");
+        ACTION.add(h2);
+        
+         //Estado 37
+        h2 = new HashMap();
+        h2.put("id","s20");
+        h2.put("at","s20");
+        ACTION.add(h2);
+        
+        //Estado 38
+        h2 = new HashMap();
+        h2.put("id","s20");
+        h2.put("at","s20");
+        ACTION.add(h2);
+        
+        //Estado 39
+        h2 = new HashMap();
+        h2.put("id","s20");
+        h2.put("at","s20");
+        ACTION.add(h2);
+        
+         //Estado 40
+        h2 = new HashMap();
+        h2.put("id","s20");
+        h2.put("at","s20");
+        ACTION.add(h2);
+        
+        //Estado 41
+        h2 = new HashMap();
+        h2.put("id","s20");
+        h2.put("at","s20");
+        ACTION.add(h2);
+        
+        //Estado 42 - OK
+        h2 = new HashMap();
+        h2.put("fc","r3");
+        ACTION.add(h2);
+        
     }
     
     public void tabelaGOTO(){
         
-        GOTO.put(0, 1);
-        GOTO.put(17,2);
-        GOTO.put(2, 4);
-        GOTO.put(4, 7);
-        GOTO.put(5, 9);
-        GOTO.put(18,26);
-        
+        GOTO.put(0,  1);
+        GOTO.put(17, 2);
+        GOTO.put(2,  4);
+        GOTO.put(4,  7);
+        GOTO.put(5,  9);
+        GOTO.put(18, 26);
+        GOTO.put(10, 19);
+        GOTO.put(30, 42);
     }
 
     public ArrayList  <HashMap> getACTION() {
