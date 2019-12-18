@@ -168,9 +168,12 @@ public class TabelasGOTOeACTION {
         h2.put("fc","r1");
         ACTION.add(h2);
         
-        //Estado 21
+        //Estado 21 
         h2 = new HashMap();
-        h2.put("end","r0");
+        h2.put("const","s34");
+        h2.put("id","s35");
+        h2.put("real","s36"); 
+        h2.put("pv", "r0");
         ACTION.add(h2);
         
         //Estado 22
@@ -227,32 +230,43 @@ public class TabelasGOTOeACTION {
         
         //Estado 32
         h2 = new HashMap();
-        h2.put("id","s20");
-        h2.put("at","s20");
+        h2.put("pv","s43");
         ACTION.add(h2);
         
-        //Estado 33
+        //Estado 33 
         h2 = new HashMap();
-        h2.put("id","s20");
-        h2.put("at","s20");
+        h2.put("pv", "r0");
+        h2.put("soma","s45");
+        h2.put("mult","s46");
+        h2.put("div","s47");
+        h2.put("subt","s48");
         ACTION.add(h2);
         
          //Estado 34
         h2 = new HashMap();
-        h2.put("id","s20");
-        h2.put("at","s20");
+        h2.put("pv","r1");
+        h2.put("soma","r1");
+        h2.put("div","r1");
+        h2.put("sub","r1");
+        h2.put("mult","r1");
         ACTION.add(h2);
         
         //Estado 35
         h2 = new HashMap();
-        h2.put("id","s20");
-        h2.put("at","s20");
+        h2.put("pv","r1");
+        h2.put("soma","r1");
+        h2.put("div","r1");
+        h2.put("sub","r1");
+        h2.put("mult","r1");
         ACTION.add(h2);
         
         //Estado 36
         h2 = new HashMap();
-        h2.put("id","s20");
-        h2.put("at","s20");
+        h2.put("pv","r1");
+        h2.put("soma","r1");
+        h2.put("div","r1");
+        h2.put("sub","r1");
+        h2.put("mult","r1");
         ACTION.add(h2);
         
          //Estado 37
@@ -290,6 +304,116 @@ public class TabelasGOTOeACTION {
         h2.put("fc","r3");
         ACTION.add(h2);
         
+        //Estado 43 - OK 
+        h2 = new HashMap();
+        h2.put("id","r5");////////////////////VER REDUÇÕES
+        h2.put("fc","r6");
+        ACTION.add(h2);
+        
+        //Estado 44
+        h2 = new HashMap();
+        h2.put("pv","r0");
+        ACTION.add(h2);
+        
+        //Estado 45     
+        h2 = new HashMap();
+        h2.put("fc","r3");
+        ACTION.add(h2);
+        
+        //Estado 47      
+        h2 = new HashMap();
+        h2.put("fc","r3");
+        ACTION.add(h2);
+        
+        //Estado 48      
+        h2 = new HashMap();
+        h2.put("fc","r3");
+        ACTION.add(h2);
+        
+        //Estado 49      
+        h2 = new HashMap();
+        h2.put("fc","r3");
+        ACTION.add(h2);
+        
+        //Estado 50
+        h2 = new HashMap();
+        h2.put("fc","r3");
+        ACTION.add(h2);
+        
+        //Estado 51
+        h2 = new HashMap();
+        h2.put("fc","r3");
+        ACTION.add(h2);
+        
+        //Estado 52
+        h2 = new HashMap();
+        h2.put("fc","r3");
+        ACTION.add(h2);
+        
+        //Estado 53
+        h2 = new HashMap();
+        h2.put("fc","r3");
+        ACTION.add(h2);
+        
+        //Estado 54
+        h2 = new HashMap();
+        h2.put("fc","r3");
+        ACTION.add(h2);
+        
+        //Estado 55
+        h2 = new HashMap();
+        h2.put("fc","r3");
+        ACTION.add(h2);
+        
+        //Estado 56
+        h2 = new HashMap();
+        h2.put("fc","r3");
+        ACTION.add(h2);
+        
+        //Estado 57
+        h2 = new HashMap();
+        h2.put("fc","r3");
+        ACTION.add(h2);
+        
+        //Estado 58
+        h2 = new HashMap();
+        h2.put("fc","r3");
+        ACTION.add(h2);
+        
+        //Estado 59
+        h2 = new HashMap();
+        h2.put("fc","r3");
+        ACTION.add(h2);
+        
+        //Estado 60
+        h2 = new HashMap();
+        h2.put("fc","r3");
+        ACTION.add(h2);
+        
+        //Estado 61
+        h2 = new HashMap();
+        h2.put("fc","r3");
+        ACTION.add(h2);
+        
+        //Estado 62
+        h2 = new HashMap();
+        h2.put("fc","r3");
+        ACTION.add(h2);
+        
+        //Estado 63
+        h2 = new HashMap();
+        h2.put("fc","r3");
+        ACTION.add(h2);
+        
+        //Estado 64
+        h2 = new HashMap();
+        h2.put("fc","r3");
+        ACTION.add(h2);
+        
+        //Estado 65
+        h2 = new HashMap();
+        h2.put("fc","r3");
+        ACTION.add(h2);
     }
     
     public void tabelaGOTO(){
@@ -299,9 +423,13 @@ public class TabelasGOTOeACTION {
         GOTO.put(2,  4);
         GOTO.put(4,  7);
         GOTO.put(5,  9);
-        GOTO.put(18, 26);
+        GOTO.put(18, 26); //32 -31
         GOTO.put(10, 19);
         GOTO.put(30, 42);
+        GOTO.put(21, 33);
+        GOTO.put(33, 44);
+        GOTO.put(44, 32);
+
     }
 
     public ArrayList  <HashMap> getACTION() {
