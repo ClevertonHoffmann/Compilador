@@ -1,0 +1,142 @@
+#Options
+GenerateScanner = true
+GenerateParser = true
+Language = Java
+ScannerName = Lexico
+ParserName = Sintatico
+SemanticName = Semantico
+ScannerCaseSensitive = true
+ScannerTable = Full
+Input = Stream
+Parser = SLR
+#RegularDefinitions
+letras:[a-zA-Z]
+numeros:[0-9]
+espaco:[\ \t\n\r]
+comentario: "(*" [^ "*" ]* "*)"
+#Tokens
+id:{letras}({letras}|{numeros}| _ )*
+const:{numeros}+
+real: {numeros}(".")*{numeros}
+//pontuação
+v: ","
+ap: "("
+fp: ")"
+pv: ";"
+ac: "{"
+fc: "}"
+dp: ":" 
+at: "=" 
+
+//comparadores
+maior: ">"
+menor: "<"
+menorig: "<="
+maiorig: ">="
+igual: "=="
+ou: "||"
+e: "&&"
+not: "!"
+dif: "<>"
+
+//operadores
+mult: "*"
+soma: "+"
+subt: "-"
+div: "/"
+inc: "++"
+dec: "--"
+
+//ignorar espaços em branco e comentários
+:{espaco}
+
+//*palavras chave*//
+
+if      = id : "if"
+then    = id : "then"
+else    = id : "else"
+while   = id : "while"
+begin   = id : "begin"
+end     = id : "end"
+for     = id : "for"
+int     = id : "int"
+str     = id : "str"
+double  = id : "double"
+boolean = id : "boolean"
+float   = id : "float"
+#NonTerminals
+<S>
+<INICIO>
+<CODIGO>
+<FIM>
+<BLOCO>
+<ATRIB>
+<EXP>
+<EXP1>
+<EXP2>
+<EXP3>
+<EXP4>
+<LACO>
+<AUX>
+<LISTA_PAR>
+<VAR>
+<TIPO>
+<COND>
+<EXPL>
+<EXPL1>
+<EXPL2>
+<EXPL3>
+<EXPL4>
+<EXPL5>
+<EXPL6>
+<EXPL7>
+<EXPL8>
+<EXPL9>
+
+#Grammar
+//Necessário declarar o nome do programa Begin e End
+<S>::= <INICIO> ap <LISTA_PAR> fp ac <CODIGO> fc <FIM>;
+<INICIO>::= id dp begin;
+<FIM>::= end;
+
+//Declaração de variáveis e tipos                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+<LISTA_PAR>::= <VAR> <LISTA_PAR> | <VAR>;
+<VAR>::= <TIPO> id pv;
+<TIPO>::= int | str | double | float | boolean;
+
+//Código e Blocos e atribuicao                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+<CODIGO> ::= <CODIGO>  <BLOCO> | <BLOCO>;
+<BLOCO> ::= <VAR> | <ATRIB> | <LACO> | <COND> ;
+<ATRIB> ::= id at <EXP> pv | id inc pv | id dec pv;
+
+//expressões
+<EXP>::= <EXP> soma <EXP1>|<EXP1>;
+<EXP1>::= <EXP1> mult <EXP2>|<EXP2>;
+<EXP2>::= <EXP2> div  <EXP3>|<EXP3>;
+<EXP3>::= <EXP3> subt <EXP4>|<EXP4>;
+<EXP4>::= ap <EXP> fp | <AUX>;
+
+//Condição IF ELSE
+<COND>::= if ap <EXPL> fp then ac <CODIGO> fc;
+<COND>::= else ac <CODIGO> fc; 
+
+//laçoS de repetição, while e for.
+<LACO>::= while <EXPL> ac <CODIGO> fc;
+<LACO>::= for ap <ATRIB> <EXPL> pv <ATRIB> fp ac <CODIGO> fc; 
+
+//expressões lógicas
+<EXPL>  ::= <EXPL> e <EXPL1> | <EXPL1>;
+<EXPL1> ::= <EXPL1> ou <EXPL2> | <EXPL2>;
+<EXPL2> ::= <EXPL2> not <EXPL3> | <EXPL3>;
+<EXPL3> ::= <EXPL3> dif <EXPL4> | <EXPL4>;
+<EXPL4> ::= <EXPL4> igual <EXPL5> | <EXPL5>;
+<EXPL5> ::= <EXPL5> maior <EXPL6> | <EXPL6>;
+<EXPL6> ::= <EXPL6> menor <EXPL7> | <EXPL7>;
+<EXPL7> ::= <EXPL7> maiorig <EXPL8> | <EXPL8>;
+<EXPL8> ::= <EXPL8> menorig <EXPL9> | <EXPL9>;
+<EXPL9> ::= ap <EXPL>  fp | <AUX>;
+
+<AUX>::= const | id | real;
+
+
+
