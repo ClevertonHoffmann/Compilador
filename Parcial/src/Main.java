@@ -27,8 +27,8 @@ public class Main {
     Lexico l = new Lexico(texto);
     l.iniciaAnalise();
     System.out.println(l.getT().getListatokens());
- //   Sintatico s = new Sintatico(l.getT());
- //   s.analisador();
+    Sintatico s = new Sintatico(l.getT());
+    s.analisador();
         
         
 //        TokenFactoryList t = new TokenFactoryList();

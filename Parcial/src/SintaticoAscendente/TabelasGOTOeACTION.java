@@ -27,145 +27,149 @@ public class TabelasGOTOeACTION {
     public void tabelaACTION(){
         HashMap<String, String> h2 = new HashMap(); 
        
-        //Estado 0 - id
+        //Estado 0 - id OK
         h2.put("id", "s3");
         ACTION.add(h2);
         
-        //Estado 1 - Estado de Aceitação
+        //Estado 1 - Estado de Aceitação OK
         h2 = new HashMap();
         h2.put("$", "acc");
         ACTION.add(h2);
         
-        //Estado 2 - <INICIO> 
+        //Estado 2 - ap OK
         h2 = new HashMap();
-        h2.put("end","r0");
-        h2.put("ac", "s5");
-        
-       // h2.put("id", "r");/////////////////
-       // h2.put("fc", "r");////////////////
-       // h2.put("if", "r");////////////////
-       // h2.put("else", "r");////////////////
-       // h2.put("while", "r");////////////////
-       // h2.put("for", "r");////////////////
+        h2.put("ap","s4");
         ACTION.add(h2);
         
-        //Estado 3 - id - OK
+        //Estado 3 - dp OK
         h2 = new HashMap();
-        h2.put("dp", "s6");
+        h2.put("dp", "s5");
         ACTION.add(h2);
         
-        //Estado 4 - <CODIGO> - OK
+        //Estado 4 - <LISTA_PAR> OK
         h2 = new HashMap();
-        h2.put("end","r0");
+        h2.put("int","s8");
+        h2.put("str", "s8");
+        h2.put("double", "s8");
+        h2.put("float", "s8");
+        h2.put("boolean", "s8");
         ACTION.add(h2);
         
-        //Estado 5 - ac ///INICIANDO ANALISE
+        //Estado 5 - begin - OK
         h2 = new HashMap();
-        h2.put("fc","r0"); 
-        h2.put("id","s10");
+        h2.put("begin","s14"); 
+               
+        ACTION.add(h2);
         
+        //Estado 6 - <LISTA_PAR> - OK
+        h2 = new HashMap();
+        h2.put("fp","s15");
+        ACTION.add(h2);
         
-        h2.put("if","s13");
-        h2.put("else","s14");
-        h2.put("while","s15");
-        h2.put("for","s16");
+        //Estado 7 - <VAR> - OK
+        h2 = new HashMap();
+        h2.put("int","s9");
+        h2.put("str", "s10");
+        h2.put("double", "s11");
+        h2.put("float", "s12");
+        h2.put("boolean", "s13");
+        h2.put("id", "s17");
+        h2.put("fp", "r0");
+        ACTION.add(h2);
+        
+        //Estado 8 - <TIPO> - OK
+        h2 = new HashMap();
+        h2.put("id","s17");
+        ACTION.add(h2);
+        
+        //Estado 9 - int - OK
+        h2 = new HashMap();
+        h2.put("id","r2");
+        ACTION.add(h2);
+        
+        //Estado 10 - str - OK
+        h2 = new HashMap();
+        h2.put("id","r2");
+        ACTION.add(h2);
+        
+        //Estado 11 - double - OK
+        h2 = new HashMap();
+        h2.put("id","r2");
+        ACTION.add(h2);
+        
+        //Estado 12 - float - OK
+        h2 = new HashMap();
+        h2.put("id","r2");
+        ACTION.add(h2);
+        
+        //Estado 13 - boolean - OK
+        h2 = new HashMap();
+        h2.put("id","r2");
+        ACTION.add(h2);
+        
+        //Estado 14 - ap - OK
+        h2 = new HashMap();
+        h2.put("ap","r2");
+     
+        ACTION.add(h2);
+        
+        //Estado 15 - fp - OK
+        h2 = new HashMap();
+        h2.put("ac","s18");
+        ACTION.add(h2);
+        
+        //Estado 16 - <VAR> <LISTA_PAR> - OK
+        h2 = new HashMap();
+        h2.put("fp","r0");
+        ACTION.add(h2);
+        
+        //Estado 17 - pv - OK
+        h2 = new HashMap();
+        h2.put("pv","s19");
+        ACTION.add(h2);
+        
+        //Estado 18 - fc 
+        h2 = new HashMap();
+        h2.put("int","r0");
+        h2.put("str","r0");
+        h2.put("double","r0");
+        h2.put("float","r0");
+        h2.put("boolean","r0");
+        h2.put("id","r0");
+        h2.put("while","r0");
+        h2.put("for","r0");
+        h2.put("if","r0");
+        h2.put("else","r0");
         
         ACTION.add(h2);
         
-        //Estado 6 - dp
+        //Estado 19 - pv 
         h2 = new HashMap();
-        h2.put("begin","s17");
-        ACTION.add(h2);
-        
-        //Estado 7 - <FIM> - OK
-        h2 = new HashMap();
-        h2.put("end","s8");
-        ACTION.add(h2);
-        
-        //Estado 8 - END - OK
-        h2 = new HashMap();
-        h2.put("$","r7");
-        ACTION.add(h2);
-        
-        //Estado 9 - <BLOCO> - OK
-        h2 = new HashMap();
-        h2.put("fc","s18");
-        ACTION.add(h2);
-        
-        //Estado 10  
-        h2 = new HashMap();
-        h2.put("if", "r0");
-        h2.put("while", "r0");
-        h2.put("else", "r0");
-        h2.put("else", "r0");
-        h2.put("id","s20");
-        h2.put("at","s21");
-        ACTION.add(h2);
-        
-        //Estado 11
-        h2 = new HashMap();
-       // h2.put("fc","r");////////////
-        ACTION.add(h2);
-        
-        //Estado 12
-        h2 = new HashMap();
-       // h2.put("fc","r");///////////
-        ACTION.add(h2);
-        
-        //Estado 13
-        h2 = new HashMap();
-        h2.put("ap","s22");
-        ACTION.add(h2);
-        
-        //Estado 14
-        h2 = new HashMap();
-     //   h2.put("id","r");
-        h2.put("ac","s5");
-     //   h2.put("fc","r");////////////////////
-       // h2.put("if", "r");////////////////
-       // h2.put("else", "r");////////////////
-       // h2.put("while", "r");////////////////
-       // h2.put("end", "r");////////////////
-       // h2.put("for", "r");////////////////
-        ACTION.add(h2);
-        
-        //Estado 15
-        h2 = new HashMap();
-        h2.put("ap","s24");
-        ACTION.add(h2);
-        
-        //Estado 16
-        h2 = new HashMap();
-        h2.put("ap","s25");
-        ACTION.add(h2);
-        
-        //Estado 17 - begin - OK
-        h2 = new HashMap();
-        h2.put("end","r0");
-        h2.put("ac", "r0");
-        ACTION.add(h2);
-        
-        //Estado 18 - fc - OK
-        h2 = new HashMap();
-        h2.put("end","r0");
-        ACTION.add(h2);
-        
-        //Estado 19
-        h2 = new HashMap();
-        h2.put("fc","r2");
-        h2.put("if", "");
-        h2.put("else", "");
-        h2.put("while", "");
-        h2.put("for", "");
-        
+        h2.put("fp","r3");
+        h2.put("fc","r3");
+        h2.put("int","r3");
+        h2.put("str","r3");
+        h2.put("double","r3");
+        h2.put("float","r3");
+        h2.put("boolean","r3");
         
         ACTION.add(h2);
         
         //Estado 20
         h2 = new HashMap();
-        h2.put("pv","s29");
+        h2.put("int","s8");
+        h2.put("str","s8");
+        h2.put("double","s8");
+        h2.put("float","s8");
+        h2.put("boolean","s8");
+        
+        
+        
+        
+        
+        
         h2.put("v", "s30");
-        h2.put("fc","r1");
+        h2.put("fc","s31");
         ACTION.add(h2);
         
         //Estado 21 
@@ -208,7 +212,7 @@ public class TabelasGOTOeACTION {
         
         //Estado 28
         h2 = new HashMap();
-        h2.put("","");
+        h2.put("fc","r2");
         ACTION.add(h2);
         
         //Estado 29 - OK
@@ -224,8 +228,7 @@ public class TabelasGOTOeACTION {
         
         //Estado 31
         h2 = new HashMap();
-        h2.put("id","s20");
-        h2.put("at","s20");
+        h2.put("end","r0");
         ACTION.add(h2);
         
         //Estado 32
@@ -320,6 +323,11 @@ public class TabelasGOTOeACTION {
         h2.put("fc","r3");
         ACTION.add(h2);
         
+        //Estado 46     
+        h2 = new HashMap();
+        h2.put("fc","r3");
+        ACTION.add(h2);
+        
         //Estado 47      
         h2 = new HashMap();
         h2.put("fc","r3");
@@ -357,12 +365,12 @@ public class TabelasGOTOeACTION {
         
         //Estado 54
         h2 = new HashMap();
-        h2.put("fc","r3");
+        h2.put("$","r13");
         ACTION.add(h2);
         
         //Estado 55
         h2 = new HashMap();
-        h2.put("fc","r3");
+        h2.put("end","s54");
         ACTION.add(h2);
         
         //Estado 56
@@ -418,17 +426,24 @@ public class TabelasGOTOeACTION {
     
     public void tabelaGOTO(){
         
-        GOTO.put(0,  1);
-        GOTO.put(17, 2);
-        GOTO.put(2,  4);
-        GOTO.put(4,  7);
-        GOTO.put(5,  9);
-        GOTO.put(18, 26); //32 -31
-        GOTO.put(10, 19);
-        GOTO.put(30, 42);
-        GOTO.put(21, 33);
-        GOTO.put(33, 44);
-        GOTO.put(44, 32);
+        GOTO.put( 0, 1);//ok
+        GOTO.put( 3, 2);//ok
+        GOTO.put( 4, 7);//ok
+        GOTO.put( 7,16);//ok
+        GOTO.put(16, 6);//ok
+        GOTO.put(18,20);
+        GOTO.put(20,20);
+        GOTO.put(31,55);
+        //GOTO.put(55,54);
+     //   GOTO.put(55,54);
+//        GOTO.put(4,  7);
+//        GOTO.put(5,  9);
+//        GOTO.put(18, 26); //32 -31
+//        GOTO.put(10, 19);
+//        GOTO.put(30, 42);
+//        GOTO.put(21, 33);
+//        GOTO.put(33, 44);
+//        GOTO.put(44, 32);
 
     }
 
