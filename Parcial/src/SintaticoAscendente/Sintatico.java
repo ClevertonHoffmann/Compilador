@@ -45,7 +45,7 @@ public class Sintatico {
                 }else if(((String) t.getACTION().get((int)p.peek()).get(
                         listaTok.getListatokens().get(i).getToken().getTok() //Token entrada
                         )).substring(0, 1).equals("r")){ //reduce
-                    
+                    int ultimo = (int)p.peek();
                     int aux = Integer.parseInt(((String) t.getACTION().get((int)p.peek()).get(
                             listaTok.getListatokens().get(i).getToken().getTok() //Token entrada
                             )).substring(1));
@@ -53,7 +53,7 @@ public class Sintatico {
                         p.pop();
                         System.out.println(p);
                     }
-                    p.push(t.getGOTO().get((int)p.peek()));
+                    p.push(t.getGOTO()[ultimo].get((int)p.peek()));//p.push(t.getGOTO().get(ultimo)); ///t.getGOTO().get((int)p.peek())
                     System.out.println(p);
                 }else if (((String) t.getACTION().get((int)p.peek()).get(
                         listaTok.getListatokens().get(i).getToken().getTok() //Token entrada
