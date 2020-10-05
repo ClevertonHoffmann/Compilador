@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package SintaticoAscendente;
+import Semantico.Semantico;
 import Token.TokenFactoryList;
 import java.util.Stack;
 
@@ -16,6 +17,7 @@ public class Sintatico {
     private TabelasGOTOeACTION t;
     Stack p = new Stack();
     TokenFactoryList listaTok;
+    Semantico s = new Semantico();
     
     public Sintatico(TokenFactoryList to){
         this.t = new TabelasGOTOeACTION();
@@ -36,10 +38,12 @@ public class Sintatico {
                         ).get(
                         listaTok.getListatokens().get(i).getToken().getTok() //Token entrada
                         )).substring(0, 1).equals("s")){ //Shift
-                    
                    p.push(Integer.parseInt(((String) t.getACTION().get((int)p.peek()).get( //empilha na pilha
                         listaTok.getListatokens().get(i).getToken().getTok() //Token entrada
                         )).substring(1)));
+                        if(!s.acaoSemantica()){
+                            
+                        }
                    i++;
                    System.out.println(p);
                 }else if(((String) t.getACTION().get((int)p.peek()).get(

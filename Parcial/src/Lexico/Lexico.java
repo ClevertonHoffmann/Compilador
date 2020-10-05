@@ -64,10 +64,10 @@ public class Lexico {
                 q = 0;
             //Regeita caractere não identificado 
             }else{ 
-                System.out.println("Estado: ".concat(String.valueOf(q))
-                                    .concat(" Posição: ").concat(String.valueOf(k))
-                                    .concat(" Token: ").concat("Erro Léxico")
-                                    .concat(" Lexema: ").concat(separado[k]).concat("Caractere não esperado"));
+//                System.out.println("Estado: ".concat(String.valueOf(q))
+//                                    .concat(" Posição: ").concat(String.valueOf(k))
+//                                    .concat(" Token: ").concat("Erro Léxico")
+//                                    .concat(" Lexema: ").concat(separado[k]).concat("Caractere não esperado"));
                 count--;
                 k++;
             }
