@@ -432,15 +432,6 @@ public class TabelasGOTOeACTION {
         
         //Estado 57 <EXP1>
         h2 = new HashMap();
-        h2.put("soma","s80");
-        h2.put("div","r1");
-        h2.put("subt","r1");
-        h2.put("mult","r1");
-        h2.put("pv","r1");
-        ACTION.add(h2);
-        
-        //Estado 58 <EXP2>
-        h2 = new HashMap();
         h2.put("soma","r1");
         h2.put("div","r1");
         h2.put("subt","r1");
@@ -449,22 +440,34 @@ public class TabelasGOTOeACTION {
         h2.put("fp","r1");
         ACTION.add(h2);
         
-        //Estado 59 <EXP3>
+        //Estado 58 <EXP2>
         h2 = new HashMap();
         h2.put("soma","r1");
         h2.put("div","s82");
         h2.put("subt","r1");
         h2.put("mult","r1");
         h2.put("pv","r1");
+        h2.put("fp","r1");
         ACTION.add(h2);
         
-        //Estado 60 <EXP4>
+        //Estado 59 <EXP3>
         h2 = new HashMap();
         h2.put("soma","r1");
         h2.put("div","r1");
         h2.put("subt","s83");
         h2.put("mult","r1");
         h2.put("pv","r1");
+        h2.put("fp","r1");
+        ACTION.add(h2);
+        
+        //Estado 60 <EXP4>
+        h2 = new HashMap();
+        h2.put("soma","r1");
+        h2.put("div","r1");
+        h2.put("subt","r1");
+        h2.put("mult","r1");
+        h2.put("pv","r1");
+        h2.put("fp","r1");
         ACTION.add(h2);
         
         //Estado 61
@@ -473,6 +476,10 @@ public class TabelasGOTOeACTION {
         h2.put("div","r1");
         h2.put("subt","r1");
         h2.put("mult","r1");
+        h2.put("id","s49");////////
+        h2.put("const","s48");/////
+        h2.put("real","s50");///////
+        h2.put("ap","s61");//////
         ACTION.add(h2);
         
         //Estado 62 <AUX>
@@ -482,6 +489,7 @@ public class TabelasGOTOeACTION {
         h2.put("subt","r1");
         h2.put("mult","r1");
         h2.put("pv","r1");
+        h2.put("fp","r1");//////
         ACTION.add(h2);
         
         //Estado 63
@@ -586,7 +594,7 @@ public class TabelasGOTOeACTION {
         
         //Estado 79 - ok
         h2 = new HashMap();
-        h2.put("fc","r4");///////////////////////////////
+        h2.put("fc","r4");
         h2.put("id","r5");
         h2.put("for","r5");
         h2.put("int","r5");
@@ -606,9 +614,215 @@ public class TabelasGOTOeACTION {
         //Estado 80
         h2 = new HashMap();
         h2.put("const","s48");
+        h2.put("ap","s61");
+        h2.put("real","s50");
+        h2.put("id","s49");
         ACTION.add(h2);
         
-        //Estado 65
+        //Estado 81
+        h2 = new HashMap();
+        h2.put("const","s48");
+        h2.put("ap","s61");
+        h2.put("real","s50");
+        h2.put("id","s49");
+        ACTION.add(h2);
+        
+        //Estado 82
+        h2 = new HashMap();
+        h2.put("const","s48");
+        h2.put("ap","s61");
+        h2.put("real","s50");
+        h2.put("id","s49");
+        ACTION.add(h2);
+        
+        //Estado 83
+        h2 = new HashMap();
+        h2.put("const","s48");
+        h2.put("ap","s61");
+        h2.put("real","s50");
+        h2.put("id","s49");
+        ACTION.add(h2);
+        
+        //Estado 84
+        h2 = new HashMap();
+        h2.put("fc","r3");
+        h2.put("fp","s103");
+        h2.put("soma","s80");
+        ACTION.add(h2);
+        
+        //Estado 85
+        h2 = new HashMap();
+        h2.put("fc","r3");
+        ACTION.add(h2);
+        
+        //Estado 86
+        h2 = new HashMap();
+        h2.put("fc","r3");
+        ACTION.add(h2);
+        
+        //Estado 87
+        h2 = new HashMap();
+        h2.put("fc","r3");
+        ACTION.add(h2);
+        
+        //Estado 88
+        h2 = new HashMap();
+        h2.put("fc","r3");
+        ACTION.add(h2);
+        
+        //Estado 89
+        h2 = new HashMap();
+        h2.put("fc","r3");
+        ACTION.add(h2);
+        
+        //Estado 90
+        h2 = new HashMap();
+        h2.put("fp","r3");
+        h2.put("ac","r3");
+        h2.put("pv","r3");
+        ACTION.add(h2);
+        
+        //Estado 91
+        h2 = new HashMap();
+        h2.put("fc","r3");
+        ACTION.add(h2);
+        
+        //Estado 92
+        h2 = new HashMap();
+        h2.put("fc","r3");
+        ACTION.add(h2);
+        
+        //Estado 93
+        h2 = new HashMap();
+        h2.put("fc","r3");
+        ACTION.add(h2);
+        
+        //Estado 94
+        h2 = new HashMap();
+        h2.put("fc","r3");
+        ACTION.add(h2);
+        
+        //Estado 95
+        h2 = new HashMap();
+        h2.put("fc","r3");
+        ACTION.add(h2);
+        
+        //Estado 96
+        h2 = new HashMap();
+        h2.put("fc","r3");
+        ACTION.add(h2);
+        
+        //Estado 97
+        h2 = new HashMap();
+        h2.put("fc","r3");
+        ACTION.add(h2);
+        
+        //Estado 98
+        h2 = new HashMap();
+        h2.put("fc","r3");
+        ACTION.add(h2);
+        
+        //Estado 99
+        h2 = new HashMap();
+        h2.put("fp","r3");
+        h2.put("ac","r3");
+        h2.put("pv","r3");
+        h2.put("soma","r3");
+        h2.put("mult","s81");
+        ACTION.add(h2);
+        
+        //Estado 100
+        h2 = new HashMap();
+        h2.put("fp","r3");
+        h2.put("pv","r3");
+        h2.put("mult","r3");
+        h2.put("soma","r3");
+        h2.put("div","s82");
+        h2.put("subt","r3");
+        ACTION.add(h2);
+        
+        //Estado 101
+        h2 = new HashMap();
+        h2.put("fp","r3");
+        h2.put("pv","r3");
+        h2.put("mult","r3");
+        h2.put("soma","r3");
+        h2.put("div","r3");
+        h2.put("subt","s83");
+        ACTION.add(h2);
+        
+        //Estado 102
+        h2 = new HashMap();
+        h2.put("fp","r3");
+        h2.put("pv","r3");
+        h2.put("mult","r3");
+        h2.put("soma","r3");
+        h2.put("div","r3");
+        h2.put("subt","r3");
+        ACTION.add(h2);
+        
+        //Estado 103
+        h2 = new HashMap();
+        h2.put("fc","r3");
+        h2.put("fp","r3");
+        h2.put("pv","r3");
+        h2.put("mult","r3");
+        h2.put("soma","r3");
+        h2.put("div","r3");
+        h2.put("subt","r3");
+        ACTION.add(h2);
+        
+        //Estado 104
+        h2 = new HashMap();
+        h2.put("fc","r3");
+        ACTION.add(h2);
+        
+        //Estado 105
+        h2 = new HashMap();
+        h2.put("fc","r3");
+        ACTION.add(h2);
+        
+        //Estado 106
+        h2 = new HashMap();
+        h2.put("fc","r3");
+        ACTION.add(h2);
+        
+        //Estado 107
+        h2 = new HashMap();
+        h2.put("fc","r3");
+        ACTION.add(h2);
+        
+        //Estado 108
+        h2 = new HashMap();
+        h2.put("fc","r3");
+        ACTION.add(h2);
+        
+        //Estado 109
+        h2 = new HashMap();
+        h2.put("fc","r3");
+        ACTION.add(h2);
+        
+        //Estado 110
+        h2 = new HashMap();
+        h2.put("fc","r3");
+        ACTION.add(h2);
+        
+        //Estado 111
+        h2 = new HashMap();
+        h2.put("fc","r3");
+        ACTION.add(h2);
+        
+        //Estado 112
+        h2 = new HashMap();
+        h2.put("fc","r3");
+        ACTION.add(h2);
+        
+        //Estado 113
+        h2 = new HashMap();
+        h2.put("fc","r3");
+        ACTION.add(h2);
+        
+        //Estado 114
         h2 = new HashMap();
         h2.put("fc","r3");
         ACTION.add(h2);
@@ -695,6 +909,11 @@ public class TabelasGOTOeACTION {
         
         valor = new HashMap();
         valor.put(33, 62);
+        valor.put(80, 62);
+        valor.put(81, 62);
+        valor.put(83, 62);
+        valor.put(82, 62);
+        valor.put(61, 62);
         GOTO[48] = valor;
         
         valor = new HashMap();
@@ -707,28 +926,83 @@ public class TabelasGOTOeACTION {
         /////////////////
         valor = new HashMap();
         valor.put(33, 60);
+        valor.put(80, 60);
+        valor.put(81, 60);
+        valor.put(83, 102);
+        valor.put(82, 60);
+        valor.put(61, 60);
         GOTO[62] = valor;
         
         valor = new HashMap();
         valor.put(33, 59);
+        valor.put(80, 59);
+        valor.put(81, 59);
+        valor.put(82, 101);
+        valor.put(61, 59);
         GOTO[60] = valor;
         
         valor = new HashMap();
         valor.put(33, 58);
+        valor.put(80, 58);
+        valor.put(81, 100);
+        valor.put(61, 58);
         GOTO[59] = valor;
         
         valor = new HashMap();
         valor.put(33, 57);
+        valor.put(80, 99);
+        valor.put(61, 57);
         GOTO[58] = valor;
         
         valor = new HashMap();
+        valor.put(33, 57);
+        GOTO[56] = valor;
+        
+        valor = new HashMap();
         valor.put(33, 56);
+        valor.put(61, 84);
         GOTO[57] = valor;
         
         valor = new HashMap();
         valor.put(15, 18);
         valor.put(18, 20);
         GOTO[79] = valor;
+                
+        valor = new HashMap();
+        valor.put(33, 56);
+        valor.put(61, 62);
+        GOTO[99] = valor;
+        
+        valor = new HashMap();
+        valor.put(33, 56);
+        valor.put(61, 62);///////////////
+        valor.put(18, 26);
+        valor.put(80, 99);
+        GOTO[100] = valor;
+        
+        valor = new HashMap();
+        valor.put(33, 59);
+        valor.put(61, 62);
+        valor.put(80, 99);
+        valor.put(81, 100);
+        valor.put(82, 101);
+        GOTO[102] = valor;
+        
+        valor = new HashMap();
+        valor.put(33, 58);
+        valor.put(80, 99);
+        valor.put(81, 100);
+        valor.put(61, 62);
+        GOTO[101] = valor;
+        
+        valor = new HashMap();
+        valor.put(33, 58);
+        valor.put(61, 62);
+        valor.put(80, 99);
+        valor.put(81, 100);
+        valor.put(82, 101);
+        valor.put(83, 62);
+        GOTO[103] = valor;
     }
 
     public ArrayList  <HashMap> getACTION() {
