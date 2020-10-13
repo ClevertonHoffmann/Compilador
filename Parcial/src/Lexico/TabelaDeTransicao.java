@@ -69,7 +69,7 @@ public class TabelaDeTransicao {
         h2.put(",",  8);
         h2.put("-",  9);
         h2.put(".", -1);
-        h2.put("/", 11);
+        h2.put("/", 10);
         h2.put("0", 11);
         h2.put("1", 11);
         h2.put("2", 11);

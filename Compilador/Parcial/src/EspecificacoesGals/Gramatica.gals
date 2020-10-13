@@ -1,0 +1,95 @@
+#Options
+GenerateScanner = true
+GenerateParser = true
+Language = Java
+ScannerName = Lexico
+ParserName = Sintatico
+SemanticName = Semantico
+ScannerCaseSensitive = true
+ScannerTable = Full
+Input = Stream
+Parser = SLR
+#RegularDefinitions
+letras:[a-zA-Z]
+numeros:[0-9]
+espaco:[\ \t\n\r]
+comentario: "(*" [^ "*" ]* "*)"
+#Tokens
+id:{letras}({letras}|{numeros}| _ )*
+const:{numeros}+
+real: {numeros}(".")*{numeros}
+//pontuação
+v: ","
+ap: "("
+fp: ")"
+pv: ";"
+ac: "{"
+fc: "}"
+dp: ":" 
+at: "=" 
+
+//comparadores
+maior: ">"
+menor: "<"
+menorig: "<="
+maiorig: ">="
+igual: "=="
+
+//operadores
+mult: "*"
+soma: "+"
+subt: "-"
+div: "/"
+
+//ignorar espaços em branco e comentários
+:{espaco}
+
+//*palavras chave*//
+
+if      = id : "if"
+then    = id : "then"
+else    = id : "else"
+while   = id : "while"
+begin   = id : "begin"
+end     = id : "end"
+for     = id : "for"
+#NonTerminals
+<S>
+<INICIO>
+<CODIGO>
+<FIM>
+<BLOCO>
+<MEIO>
+<DECL>
+<COND>
+<AT>
+<ATL>
+<COMP>
+<COMP1>
+<EXP>
+<LACO>
+<AUX>
+
+#Grammar
+//Necessário declarar o nome do programa Begin e End
+<S>::= <INICIO> <CODIGO> <FIM>;
+<INICIO>::= id dp begin;
+<FIM>::= end;
+//Código e Blocos
+<CODIGO>::= ac <BLOCO> fc <CODIGO>| î;
+<BLOCO>::= id <MEIO> <BLOCO> | <COND> | <LACO>| î;
+<MEIO>::= id <DECL> | at <AT>;
+<DECL>::= pv | v <MEIO> | î;
+//atribuição, expressões
+<AT>::= <ATL> pv;
+<ATL>::= <AUX> <EXP>;
+<EXP>::= soma <ATL>| mult <ATL>| div <ATL>| subt <ATL>|î;
+//condição if then e else, comparação
+<COND>::= if ap <COMP> fp then <CODIGO> <BLOCO> | else <CODIGO> <BLOCO>; 
+<COMP>::= <AUX> <COMP1> ;
+<COMP1>::= igual <AUX>| maior <AUX>| menor <AUX>| maiorig <AUX>| menorig <AUX> |î; 
+<AUX>::= const | id | real;
+//laçoS de repetição, while e for.
+<LACO>::= while ap <COMP> fp <CODIGO> <BLOCO>| for ap id at <AT> <COMP> pv <AUX> at <ATL>  fp <CODIGO> <BLOCO>; 
+
+

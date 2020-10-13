@@ -7,7 +7,6 @@ package SintaticoAscendente;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Arrays;
 
 /**
  *
@@ -1267,7 +1266,7 @@ public class TabelasGOTOeACTION {
         valor.put(108, 23);
         valor.put(106, 108);
         valor.put(53, 23);
-        //valor.put(30, 53);
+        valor.put(30, 53);
         GOTO[63] = valor;
         
         valor = new HashMap();
@@ -1547,6 +1546,7 @@ public class TabelasGOTOeACTION {
         
         valor = new HashMap();
         valor.put(27, 36);
+        valor.put(46, 47);
         valor.put(52, 47);
         valor.put(66, 47);
         valor.put(67, 47);
@@ -1670,6 +1670,7 @@ public class TabelasGOTOeACTION {
         valor = new HashMap();
         valor.put(18, 20);
         valor.put(108, 22);
+        valor.put(53, 22);
         GOTO[104] = valor;
         
         valor = new HashMap();
