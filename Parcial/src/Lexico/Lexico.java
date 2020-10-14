@@ -47,16 +47,16 @@ public class Lexico {
                 if(!build.toString().equals(" ")){ //Não salva os espaços na lista de tokens      
                    if(tab.getpReservada().containsValue(build.toString())){ //Verifica se contém palavra reservada
                        t.setListatokens(build.toString(), build.toString(), qntTokens);
-                       System.out.println("Estado: ".concat(String.valueOf(q))
-                            .concat(" Posição: ".concat(String.valueOf(k)))
-                            .concat(" Token: ").concat(build.toString())
-                            .concat(" Lexema: ").concat(build.toString()));
+//                       System.out.println("Estado: ".concat(String.valueOf(q))
+//                            .concat(" Posição: ".concat(String.valueOf(k)))
+//                            .concat(" Token: ").concat(build.toString())
+//                            .concat(" Lexema: ").concat(build.toString()));
                    }else{
                        t.setListatokens(tab.getTs().get(q), build.toString(), qntTokens);
-                       System.out.println("Estado: ".concat(String.valueOf(q))
-                            .concat(" Posição: ".concat(String.valueOf(k)))
-                            .concat(" Token: ").concat(tab.getTs().get(q))
-                            .concat(" Lexema: ").concat(build.toString()));
+//                       System.out.println("Estado: ".concat(String.valueOf(q))
+//                            .concat(" Posição: ".concat(String.valueOf(k)))
+//                            .concat(" Token: ").concat(tab.getTs().get(q))
+//                            .concat(" Lexema: ").concat(build.toString()));
                    }                 
                 qntTokens++;
                 }
@@ -64,10 +64,10 @@ public class Lexico {
                 q = 0;
             //Regeita caractere não identificado 
             }else{ 
-                System.out.println("Estado: ".concat(String.valueOf(q))
-                                    .concat(" Posição: ").concat(String.valueOf(k))
-                                    .concat(" Token: ").concat("Erro Léxico")
-                                    .concat(" Lexema: ").concat(separado[k]).concat("Caractere não esperado"));
+//                System.out.println("Estado: ".concat(String.valueOf(q))
+//                                    .concat(" Posição: ").concat(String.valueOf(k))
+//                                    .concat(" Token: ").concat("Erro Léxico")
+//                                    .concat(" Lexema: ").concat(separado[k]).concat("Caractere não esperado"));
                 count--;
                 k++;
             }

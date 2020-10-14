@@ -41,11 +41,11 @@ public class Sintatico {
                    p.push(Integer.parseInt(((String) t.getACTION().get((int)p.peek()).get( //empilha na pilha
                         listaTok.getListatokens().get(i).getToken().getTok() //Token entrada
                         )).substring(1)));
-                        if(!s.acaoSemantica()){
-                            
+                        if(!s.acaoSemantica((int) p.peek(), listaTok.getListatokens().get(i))){
+                            return false;                            
                         }
                    i++;
-                   System.out.println(p);
+                  // System.out.println(p);
                 }else if(((String) t.getACTION().get((int)p.peek()).get(
                         listaTok.getListatokens().get(i).getToken().getTok() //Token entrada
                         )).substring(0, 1).equals("r")){ //reduce
@@ -58,7 +58,7 @@ public class Sintatico {
                         System.out.println(p);
                     }
                     p.push(t.getGOTO()[ultimo].get((int)p.peek()));//p.push(t.getGOTO().get(ultimo)); ///t.getGOTO().get((int)p.peek())
-                    System.out.println(p);
+                  //  System.out.println(p);
                 }else if (((String) t.getACTION().get((int)p.peek()).get(
                         listaTok.getListatokens().get(i).getToken().getTok() //Token entrada
                         )).equals("acc")){ //fim da gramática
