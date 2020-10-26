@@ -71,8 +71,6 @@ public class TabelasGOTOeACTION {
         h2.put("float", "s12");
         h2.put("boolean", "s13");
         h2.put("fp", "r1"); 
-       // h2.put("fc", "r1"); //com
-       // h2.put("id", "r1"); //com
         ACTION.add(h2);
         
         //Estado 8 - id - OK
@@ -117,7 +115,7 @@ public class TabelasGOTOeACTION {
        
         //Estado 16 - (reduce fp) - OK
         h2 = new HashMap();
-        h2.put("fp","r1");
+        h2.put("fp","r2");
         ACTION.add(h2);
         
         //Estado 17 - pv - OK
@@ -137,23 +135,22 @@ public class TabelasGOTOeACTION {
         h2.put("double", "s11");
         h2.put("float", "s12");
         h2.put("boolean", "s13");
-//        h2.put("fc", "r1"); com
         ACTION.add(h2);
         
         //Estado 19 - (reduce id,fp,fc,if,else,while,for,int,str,double,boolean, float) - OK
         h2 = new HashMap();
         h2.put("id","r3");
-        h2.put("fp","r3");//mud 3
-        h2.put("fc","r3");//mud 3
+        h2.put("fp","r3");
+        h2.put("fc","r3");
         h2.put("if","r3");
         h2.put("else","r3");
         h2.put("while","r3");
         h2.put("for","r3");
-        h2.put("int","r4");
-        h2.put("str","r4");
-        h2.put("double","r4");
-        h2.put("boolean","r4");
-        h2.put("float","r4");
+        h2.put("int","r3");
+        h2.put("str","r3");
+        h2.put("double","r3");
+        h2.put("boolean","r3");
+        h2.put("float","r3");
         ACTION.add(h2);
         
         //Estado 20 - id-fc-if-else-while-for-int-str-double-float-boolean - OK
@@ -173,7 +170,7 @@ public class TabelasGOTOeACTION {
         
         //Estado 21 (reduce id,fc,if,else,while,for,int,str,double,boolean, float) - OK
         h2 = new HashMap();
-        h2.put("id","r1"); //Mudado de r2 para r1
+        h2.put("id","r1");
         h2.put("fc","r1");
         h2.put("if","r1");
         h2.put("else","r1");
@@ -189,7 +186,7 @@ public class TabelasGOTOeACTION {
         //Estado 22 (reduce id,fc,if,else,while,for,int,str,double,boolean, float) - OK
         h2 = new HashMap();
         h2.put("id","r1"); 
-        h2.put("fc","r1"); ///ver reduce voltei de 2 para o 1
+        h2.put("fc","r1");
         h2.put("if","r1");
         h2.put("else","r1");
         h2.put("while","r1");
@@ -255,7 +252,6 @@ public class TabelasGOTOeACTION {
         
         //Estado 27 id-const-real-ap - OK
         h2 = new HashMap();
-      //  h2.put("end","r4");/////////////////retirar não é usado
         h2.put("id","s49");
         h2.put("const","s48");
         h2.put("real","s50");
@@ -264,13 +260,11 @@ public class TabelasGOTOeACTION {
         
         //Estado 28 - ap - OK
         h2 = new HashMap();
-      //  h2.put("fc","r2");
         h2.put("ap","s51");
         ACTION.add(h2);
         
         //Estado 29 - ap - OK
         h2 = new HashMap();
-        //h2.put("fc","r2");//////////olhar uso 
         h2.put("ap","s52");
         ACTION.add(h2);
         
@@ -286,7 +280,6 @@ public class TabelasGOTOeACTION {
         
         //Estado 32 (reduce id,fc,if,else,while,for,int,str,double,boolean, float) - OK
         h2 = new HashMap();
-        //h2.put("pv","s43"); com
         h2.put("id","r2");
         h2.put("fc","r2");
         h2.put("if","r2");
@@ -322,11 +315,6 @@ public class TabelasGOTOeACTION {
         h2 = new HashMap();
         h2.put("ac","s65");
         h2.put("e","s66");
-//        h2.put("pv","r1"); com
-//        h2.put("soma","r1"); com
-//        h2.put("div","r1"); com
-//        h2.put("sub","r1"); com
-//        h2.put("mult","r1"); com
         ACTION.add(h2);
         
         //Estado 37 ou - OK
@@ -336,13 +324,6 @@ public class TabelasGOTOeACTION {
         h2.put("ac","r1");
         h2.put("ou","s67");
         h2.put("e","r1");
-//        h2.put("dif","r1");com
-//        h2.put("not","r1");com
-//        h2.put("igual","r1");com
-//        h2.put("maiorig","r1");com
-//        h2.put("menorig","r1");com
-//        h2.put("menor","r1");com
-//        h2.put("maior","r1");com
         ACTION.add(h2);
         
         //Estado 38 not - OK
@@ -353,12 +334,6 @@ public class TabelasGOTOeACTION {
         h2.put("ou","r1");
         h2.put("e","r1");
         h2.put("not","s68");
-//        h2.put("dif","r1"); com
-//        h2.put("igual","r1"); com
-//        h2.put("maiorig","r1"); com
-//        h2.put("menorig","r1"); com
-//        h2.put("menor","r1"); com
-//        h2.put("maior","r1"); com 
         ACTION.add(h2);
         
         //Estado 39 dif - OK
@@ -370,11 +345,6 @@ public class TabelasGOTOeACTION {
         h2.put("e","r1");
         h2.put("not","r1");
         h2.put("dif","s69");
-//        h2.put("igual","r1"); com
-//        h2.put("maiorig","r1"); com
-//        h2.put("menorig","r1"); com
-//        h2.put("menor","r1"); com
-//        h2.put("maior","r1"); com
         ACTION.add(h2);
         
          //Estado 40 igual - OK
@@ -387,10 +357,6 @@ public class TabelasGOTOeACTION {
         h2.put("e","r1");
         h2.put("not","r1");
         h2.put("dif","r1");
-//        h2.put("maiorig","r1"); com 
-//        h2.put("menorig","r1"); com
-//        h2.put("menor","r1"); com
-//        h2.put("maior","r1"); com
         ACTION.add(h2);
         
         //Estado 41 maior - OK
@@ -404,9 +370,6 @@ public class TabelasGOTOeACTION {
         h2.put("e","r1");
         h2.put("not","r1");
         h2.put("dif","r1");
-//        h2.put("maiorig","r1"); com
-//        h2.put("menorig","r1"); con 
-//        h2.put("menor","r1"); com
         ACTION.add(h2);
         
         //Estado 42 menor - OK
@@ -421,8 +384,6 @@ public class TabelasGOTOeACTION {
         h2.put("e","r1");
         h2.put("not","r1");
         h2.put("dif","r1");
-//        h2.put("maiorig","r1"); com
-//        h2.put("menorig","r1"); com       
         ACTION.add(h2);
         
         //Estado 43 maiorig - OK 
@@ -438,7 +399,6 @@ public class TabelasGOTOeACTION {
         h2.put("e","r1");
         h2.put("not","r1");
         h2.put("dif","r1");
-//        h2.put("menorig","r1");
         ACTION.add(h2);
         
         //Estado 44 menorig - OK
@@ -475,7 +435,6 @@ public class TabelasGOTOeACTION {
         
         //Estado 46 id, const, real, ap - OK    
         h2 = new HashMap(); 
-      //  h2.put("fc","r3");///////////////////ver
         h2.put("id","s49");
         h2.put("const","s48");
         h2.put("real","s50");
@@ -516,7 +475,6 @@ public class TabelasGOTOeACTION {
         h2.put("div","r1");
         h2.put("subt","r1");
         h2.put("mult","r1");
-      //  h2.put("fc","r1");
         ACTION.add(h2);
         
         //Estado 49 reduce(fp, pv, ac, maior, menor, menorig, maiorig, igual, ou, e, not, dif, soma, div, subt, mult) - OK 
@@ -537,7 +495,6 @@ public class TabelasGOTOeACTION {
         h2.put("div","r1");
         h2.put("subt","r1");
         h2.put("mult","r1");
-//        h2.put("fc","r1");
         ACTION.add(h2);
         
         //Estado 50 reduce(fp, pv, ac, maior, menor, menorig, maiorig, igual, ou, e, not, dif, soma, div, subt, mult) - OK 
@@ -557,7 +514,6 @@ public class TabelasGOTOeACTION {
         h2.put("div","r1");
         h2.put("subt","r1");
         h2.put("mult","r1");
-//        h2.put("fc","r1");
         ACTION.add(h2);
         
         //Estado 51 id - OK
@@ -567,7 +523,6 @@ public class TabelasGOTOeACTION {
         
         //Estado 52 id-const-real-ap - OK
         h2 = new HashMap();
-       // h2.put("fc","r3");///ver uso
         h2.put("id","s49");
         h2.put("const","s48");
         h2.put("real","s50");
@@ -586,26 +541,22 @@ public class TabelasGOTOeACTION {
         h2.put("double", "s11");
         h2.put("float", "s12");
         h2.put("boolean", "s13");
-       // h2.put("fc", "r1"); com
         ACTION.add(h2);
         
         //Estado 54 $ - OK
         h2 = new HashMap();
-        h2.put("$","r13");
+        h2.put("$","r8");
         ACTION.add(h2);
         
         //Estado 55 - (S) - OK
         h2 = new HashMap();
-        h2.put("$","r8");
+        h2.put("$","r1");
         ACTION.add(h2);
         
         //Estado 56 pv-soma OK
         h2 = new HashMap();
         h2.put("pv","s79");
         h2.put("soma","s80");
-//        h2.put("div","r1"); com
-//        h2.put("subt","r1"); com
-//        h2.put("mult","r1"); com
         ACTION.add(h2);
         
         //Estado 57 mult - OK
@@ -614,13 +565,11 @@ public class TabelasGOTOeACTION {
         h2.put("pv","r1");
         h2.put("mult","s81");
         h2.put("soma","r1");
-//        h2.put("div","r1"); com
-//        h2.put("subt","r1"); com
         ACTION.add(h2);
         
         //Estado 58 div - OK
         h2 = new HashMap();
-         h2.put("fp","r1");
+        h2.put("fp","r1");
         h2.put("pv","r1");
         h2.put("mult","s81");
         h2.put("soma","r1");
@@ -653,10 +602,6 @@ public class TabelasGOTOeACTION {
         h2.put("const","s48");
         h2.put("real","s50");
         h2.put("ap","s61");
-//        h2.put("soma","r1");com
-//        h2.put("div","r1");com
-//        h2.put("subt","r1");com
-//        h2.put("mult","r1");com
         ACTION.add(h2);
         
         //Estado 62 reduce(soma-div-subt-mult-pv-fp) - OK
@@ -671,46 +616,45 @@ public class TabelasGOTOeACTION {
         
         //Estado 63 - reduce - OK
         h2 = new HashMap();
-        h2.put("id","r4");
-        h2.put("const","r4");
-        h2.put("real","r4");
-        h2.put("ap","r4");
-        h2.put("fp","r4");
-        h2.put("fc","r4"); ////MUDADO DE 3 PARA 4
-        h2.put("if","r4");
-        h2.put("else","r4");
-        h2.put("while","r4");
-        h2.put("for","r4");
-        h2.put("int","r4");
-        h2.put("str", "r4");
-        h2.put("double", "r4");
-        h2.put("float", "r4");
-        h2.put("boolean", "r4");
+        h2.put("id","r3");
+        h2.put("const","r3");
+        h2.put("real","r3");
+        h2.put("ap","r3");
+        h2.put("fp","r3");
+        h2.put("fc","r3");
+        h2.put("if","r3");
+        h2.put("else","r3");
+        h2.put("while","r3");
+        h2.put("for","r3");
+        h2.put("int","r3");
+        h2.put("str", "r3");
+        h2.put("double", "r3");
+        h2.put("float", "r3");
+        h2.put("boolean", "r3");
         ACTION.add(h2);
         
         //Estado 64 - reduce - OK
         h2 = new HashMap();
-        h2.put("id","r4");
-        h2.put("const","r4");
-        h2.put("real","r4");
-        h2.put("ap","r4");
-        h2.put("fp","r4");
-        h2.put("fc","r4"); ////MUDADO DE 3 PARA 4
-        h2.put("if","r4");
-        h2.put("else","r4");
-        h2.put("while","r4");
-        h2.put("for","r4");
-        h2.put("int","r4");
-        h2.put("str", "r4");
-        h2.put("double", "r4");
-        h2.put("float", "r4");
-        h2.put("boolean", "r4");
+        h2.put("id","r3");
+        h2.put("const","r3");
+        h2.put("real","r3");
+        h2.put("ap","r3");
+        h2.put("fp","r3");
+        h2.put("fc","r3");
+        h2.put("if","r3");
+        h2.put("else","r3");
+        h2.put("while","r3");
+        h2.put("for","r3");
+        h2.put("int","r3");
+        h2.put("str", "r3");
+        h2.put("double", "r3");
+        h2.put("float", "r3");
+        h2.put("boolean", "r3");
         ACTION.add(h2);
         
         //Estado 65 id-if-else-while-for-int-str-double-float-boolean - OK
         h2 = new HashMap();
         h2.put("id","s26");
-       // h2.put("fc","r3"); com
         h2.put("if","s29");
         h2.put("else","s30");
         h2.put("while","s27");
@@ -806,7 +750,6 @@ public class TabelasGOTOeACTION {
         h2.put("const","s48");
         h2.put("real","s50");
         h2.put("ap","s46");
-        //h2.put("fc","r3"); com
         ACTION.add(h2);
         
         //Estado 77 fp-e OK
@@ -837,7 +780,7 @@ public class TabelasGOTOeACTION {
         h2.put("real","r4");
         h2.put("ap","r4");
         h2.put("fp","r4");
-        h2.put("fc","r4"); ///MUDADO de r4 para r5
+        h2.put("fc","r4");
         h2.put("if","r4");
         h2.put("else","r4");
         h2.put("while","r4");
@@ -883,7 +826,6 @@ public class TabelasGOTOeACTION {
         
         //Estado 84 fp-soma - OK
         h2 = new HashMap();
-        //h2.put("fc","r3"); com
         h2.put("fp","s103");
         h2.put("soma","s80");
         ACTION.add(h2);
@@ -1037,7 +979,6 @@ public class TabelasGOTOeACTION {
         
         //Estado 96 pv-e - OK
         h2 = new HashMap();
-        //h2.put("fc","r3"); com
         h2.put("pv","s105");
         h2.put("e","s66");
         ACTION.add(h2);
@@ -1049,24 +990,23 @@ public class TabelasGOTOeACTION {
         
         //Estado 98 reduce - OK
         h2 = new HashMap();
-        h2.put("id","r5");
-        h2.put("fc","r5");
-        h2.put("if","r5");
-        h2.put("else","r5");
-        h2.put("while","r5");
-        h2.put("for","r5");
-        h2.put("int","r5");
-        h2.put("str","r5");
-        h2.put("double","r5");
-        h2.put("boolean","r5");
-        h2.put("float","r5");
+        h2.put("id","r4");
+        h2.put("fc","r4");
+        h2.put("if","r4");
+        h2.put("else","r4");
+        h2.put("while","r4");
+        h2.put("for","r4");
+        h2.put("int","r4");
+        h2.put("str","r4");
+        h2.put("double","r4");
+        h2.put("boolean","r4");
+        h2.put("float","r4");
         ACTION.add(h2);
         
         //Estado 99 mult - OK
         h2 = new HashMap();
         h2.put("fp","r3");
         h2.put("pv","r3");
-       // h2.put("ac","r3"); com
         h2.put("soma","r3");
         h2.put("mult","s81");
         ACTION.add(h2);
@@ -1078,7 +1018,6 @@ public class TabelasGOTOeACTION {
         h2.put("mult","r3");
         h2.put("soma","r3");
         h2.put("div","s82");
-       // h2.put("subt","r3"); com
         ACTION.add(h2);
         
         //Estado 101 subt - OK
@@ -1130,7 +1069,6 @@ public class TabelasGOTOeACTION {
         //Estado 105 id - OK
         h2 = new HashMap();
         h2.put("id","s26");
-        //h2.put("fc","r3"); com
         ACTION.add(h2);
         
         //Estado 106 ac - OK
@@ -1140,7 +1078,6 @@ public class TabelasGOTOeACTION {
         
         //Estado 107 fp - OK
         h2 = new HashMap();
-       // h2.put("fc","r3"); com
         h2.put("fp","s109");
         ACTION.add(h2);
         
@@ -1160,7 +1097,6 @@ public class TabelasGOTOeACTION {
         
         //Estado 109 ac - OK
         h2 = new HashMap();
-       // h2.put("fc","r3");
         h2.put("ac","s111");
         ACTION.add(h2);
         
@@ -1182,7 +1118,6 @@ public class TabelasGOTOeACTION {
         //Estado 111 id-if-else-while-for-int-str-double-float-boolean - OK
         h2 = new HashMap();
         h2.put("id","s26");
-       // h2.put("fc","r3"); com
         h2.put("if","s29");
         h2.put("else","s30");
         h2.put("while","s27");
@@ -1211,7 +1146,6 @@ public class TabelasGOTOeACTION {
         
         //Estado 113 id-fc-if-else-while-for-int-str-double-float-boolean - OK
         h2 = new HashMap();
-       // h2.put("fc","r3"); com
         h2.put("id","s26");
         h2.put("fc","s114");
         h2.put("if","s29");
@@ -1227,30 +1161,31 @@ public class TabelasGOTOeACTION {
         
         //Estado 114
         h2 = new HashMap();
-        h2.put("id","r9");
-        h2.put("fc","r9");
-        h2.put("if","r9");
-        h2.put("else","r9");
-        h2.put("while","r9");
-        h2.put("for","r9");
-        h2.put("int","r9");
-        h2.put("str", "r9");
-        h2.put("double", "r9");
-        h2.put("float", "r9");
-        h2.put("boolean", "r9");
+        h2.put("id","r10");
+        h2.put("fc","r10");
+        h2.put("if","r10");
+        h2.put("else","r10");
+        h2.put("while","r10");
+        h2.put("for","r10");
+        h2.put("int","r10");
+        h2.put("str", "r10");
+        h2.put("double", "r10");
+        h2.put("float", "r10");
+        h2.put("boolean", "r10");
         ACTION.add(h2);
     }
     
     public void tabelaGOTO(){
         
         HashMap<Integer, Integer> valor = new HashMap();
-                
+        
         valor.put(0, 2); //Número atual empilhado na pilha e número a ser empilhado
         GOTO[14] = valor; //Número na pilha anterior ao reduce
         
         valor = new HashMap();
         valor.put(4, 8);
         valor.put(7, 8);
+        
         valor.put(18, 8);
         valor.put(20, 8);
         valor.put(85, 8);
@@ -1303,15 +1238,16 @@ public class TabelasGOTOeACTION {
         valor.put(53, 8);
         valor.put(78, 8);
         GOTO[13] = valor;
-
+        
         valor = new HashMap();
-        valor.put(4, 16);
+        valor.put(4, 6); //ok
+        valor.put(7, 16); //ok
         GOTO[7] = valor;
         
         valor = new HashMap();
         valor.put(4, 7);
         valor.put(2, 4);
-        valor.put(7, 4);
+        valor.put(7, 7);
         valor.put(15, 18);
         valor.put(18, 22);
         valor.put(20, 22);
@@ -1327,6 +1263,7 @@ public class TabelasGOTOeACTION {
         
         valor = new HashMap();
         valor.put(4, 6);
+        valor.put(7, 16);
         GOTO[16] = valor;
         
         valor = new HashMap();
@@ -1341,12 +1278,13 @@ public class TabelasGOTOeACTION {
         GOTO[22] = valor;
         
         valor = new HashMap();
-        valor.put(18, 20);
-        valor.put(36, 85);
-        valor.put(85, 32);
-        valor.put(108, 110);
-        valor.put(53, 78);
-        valor.put(111, 113);
+        valor.put(18, 20); //ok
+//        valor.put(36, 85);
+//        valor.put(85, 32);
+        valor.put(108, 110); //ok
+        valor.put(53, 78); //ok
+        valor.put(111, 113); //ok
+        valor.put(65, 85); //ok
         GOTO[21] = valor;
         
         valor = new HashMap();
@@ -1356,7 +1294,8 @@ public class TabelasGOTOeACTION {
         GOTO[23] = valor;
         
         valor = new HashMap();
-        valor.put(85, 32);
+        valor.put(85, 32); //ok
+        valor.put(65, 21); //ok
         GOTO[24] = valor;
         
         valor = new HashMap();
@@ -1369,9 +1308,13 @@ public class TabelasGOTOeACTION {
         valor.put(20, 32);
         GOTO[25] = valor;
         
+        valor = new HashMap(); //FIM
+        valor.put(31, 54);
+        GOTO[55] = valor;
+        
         valor = new HashMap(); //ACEITACAO
         valor.put(0, 1);
-        GOTO[55] = valor;
+        GOTO[54] = valor;
         
         valor = new HashMap();
         valor.put(18, 22);
@@ -1383,12 +1326,14 @@ public class TabelasGOTOeACTION {
         valor.put(53, 23);
         valor.put(30, 53);
         valor.put(96, 107);
+        valor.put(105, 107); //ok
         GOTO[63] = valor;
         
         valor = new HashMap();
-        valor.put(18, 22);
-        valor.put(15, 18);
-        valor.put(96, 107);
+//        valor.put(18, 22);
+//        valor.put(15, 18);
+//        valor.put(96, 107);
+        valor.put(105, 107); //ok
         GOTO[64] = valor;
         
         valor = new HashMap();
@@ -1751,7 +1696,8 @@ public class TabelasGOTOeACTION {
         GOTO[95] = valor;
         
         valor = new HashMap();
-        valor.put(18, 20);
+       // valor.put(18, 20);
+        valor.put(20, 25); //ok
         GOTO[98] = valor;
         
         valor = new HashMap();
@@ -1807,7 +1753,8 @@ public class TabelasGOTOeACTION {
         valor = new HashMap();
         valor.put(18, 20);
         valor.put(20, 32);
-        valor.put(85, 24);
+        valor.put(85, 24); //ok
+        valor.put(65, 24); //ok
         GOTO[114] = valor;
         
     }
