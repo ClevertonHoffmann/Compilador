@@ -64,12 +64,18 @@ public class Semantico {
         }
         //---Fim Bloco 2 - Verificação se as variáveis já foram declaradas
         
-        //---Inicio Bloco 3 - Verificação do tipo de atribuição após uma atribuição --FALTA TERMINAR!
+        //---Inicio Bloco 3 - Verificação do tipo de atribuição após uma atribuição //FALTA TERMINAR
         //Validação da atribuição para as variáveis de acordo com o tipo int, boolean, double, float e str
         if (token.equals("pv") && at > 0) {
             return verficaTipo();
         }
         //---Fim Bloco 3 
+        
+        //---Inicio Bloco 4 - Verificação do else, else deve ser antecedido por um if //FALTA TERMINAR
+        if(token.equals("else")){
+            
+        }
+        //---Fim Bloco 4 
         
         return true;
     }
@@ -115,24 +121,22 @@ public class Semantico {
         return false;
     }
 
-    //FALTA TERMINAR MÉTODO
+    /*
+    Método responsável por analisar se as atribuições estão corretas
+    */
     public boolean verficaTipo() {
-        //String qualquer
-        if (tipo.equals("str")) {
-//            HashMap<String, String> a = new HashMap();
-//            a = (HashMap<String, String>) tabelaSimb.get(tabelaSimb.size()-2);
-//            if (a.get(""+(tabelaSimb.size()-2)).length()>1){
-//                return true;
-//            }else{
-//                System.out.println("Erro semântico a váriável ");
-//                return false;///ARRUMAR VERIFICAR SE VARIÁVEL ATRIBUIDA É UMA STRING
-//            }
+        String val = "";
+        HashMap<String, String> a = new HashMap();
+        for (int i = tabelaSimb.size() - at; i < tabelaSimb.size()-1; i++) {
+            a = (HashMap<String, String>) tabelaSimb.get(i);
+            val = val.concat(a.get(""+i));
         }
+        
+        
+        
         //Número inteiro
         if (tipo.equals("int")) {
-            for (int i = tabelaSimb.size() - at; i < tabelaSimb.size(); i++) {
-
-            }
+            
         }
         //Número real
         if (tipo.equals("float") || tipo.equals("double")) {
@@ -142,6 +146,11 @@ public class Semantico {
         }
         //Booleano
         if (tipo.equals("boolean")) {
+
+        }
+        //String qualquer
+        if (tipo.equals("str")) {
+            
 
         }
         return true;
