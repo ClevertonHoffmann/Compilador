@@ -125,6 +125,7 @@ public class Semantico {
     public boolean verficaTipo() {
         String val = "";
         HashMap<String, String> a = new HashMap();
+        boolean aux = true;
         for (int i = tabelaSimb.size() - at; i < tabelaSimb.size() - 1; i++) {
             a = (HashMap<String, String>) tabelaSimb.get(i);
             val = a.get("" + i);
@@ -133,49 +134,120 @@ public class Semantico {
                 //Não realiza nenhuma operação
             } else {
                 //Número inteiro
-                if (tipo.equals("int")) {
-                    if(val.equals("++")||val.equals("--")){
-                          
+                if (tipoAt.equals("int")) {
+                    if (val.equals("++") || val.equals("--")) {
+                        aux = true;
+                    } else {
+                        if (val.equals("+") || val.equals("-") || val.equals("*")) {
+                            //Não faz nada pois soma e subtração de inteiros é sempre inteiro, apenas ignora símbolo
+                        } else {
+                            if (val.equals("/")) {
+                                System.out.println("Erro semântico simbolo incompatível " + val + " com o tipo int!");
+                                return false;
+                            } else {
+                                //Verifica se é um número válido e se não é real então é inteiro
+                                if (verificarNumeroValido(val)) {
+                                    if (!verificarReal(val)) {
+                                        aux = true;
+                                    } else {
+                                        System.out.println("Erro semântico simbolo incompatível " + val + " com o tipo int!");
+                                        return false;
+                                    }
+                                } else {
+                                    //////////////////fazer verificação de variável inteira já atribuída
+                                    System.out.println("Erro semântico simbolo incompatível " + val + " com o tipo int!");
+                                    return false;
+                                }
+                            }
+                        }
                     }
-                    if(val.equals("+")||val.equals("-")){
-                        
-                    }
-                    
-                    //adição
-                    //subtração
-                    //multiplicação
-                    //divisão
-                    //incremento e decremento
                 }
                 //Número real
-                if (tipo.equals("float") || tipo.equals("double")) {
-                    if(val.equals("++")||val.equals("--")){
-                        return false;                     
+                if (tipoAt.equals("float") || tipoAt.equals("double")) {
+                    if (val.equals("++") || val.equals("--")) {
+                        System.out.println("Erro semântico simbolo incompatível " + val + " com o tipo numérico real!");
+                        return false;
                     }
-                    
-                    
-                    
+                    if (verificarNumeroValido(val)) {
+                        if (verificarReal(val)) {
+                            aux = true;
+                        } else {
+                            System.out.println("Erro semântico simbolo incompatível " + val + " com o tipo numérico real!");
+                            return false;
+                        }
+                    } else {
+                        System.out.println("Erro semântico simbolo incompatível " + val + " com o tipo numérico real!");
+                        return false;
+                    }
                 }
                 //Booleano
-                if (tipo.equals("boolean")) {
-                    if(val.equals("++")||val.equals("--")){
-                        return false;                 
+                if (tipoAt.equals("boolean")) {
+                    if (val.equals("++") || val.equals("--")) {
+                        System.out.println("Erro semântico simbolo incompatível " + val + " com o tipo booleano!");
+                        return false;
                     }
-                    if(val.equals("true")||val.equals("false")){
-                       return true; 
+                    if (val.equals("true") || val.equals("false")) {
+                        aux = true;
                     }
-                    
-                    
+                    //////////////////Fazer validação de expressões lógicas
                 }
                 //String qualquer
-                if (tipo.equals("str")) {
-                    if(val.equals("++")||val.equals("--")){
-                        return false;                        
+                if (tipoAt.equals("str")) {
+                    aux = val.matches("[A-z]+([a-zA-Z][0-9]+|_)+");
+                    if(!aux){
+                        System.out.println("Erro semântico simbolo incompatível " + val + " com o tipo str!");
+                        return false;  
                     }
                 }
             }
         }
-        return true;
+        return aux;
     }
 
+    public boolean verificarNumeroValido(String palavra) {
+        boolean retorno = false;
+        int cont = 0;
+        if (palavra.length() == 1) {
+            retorno = true;
+        } else {
+            for (int i = 1; i < palavra.length(); i++) {
+                if (Character.isDigit(palavra.charAt(0))) {
+                    if ((palavra.charAt(i) == ',') || (palavra.charAt(i) == '.')) {
+                        cont++;
+                    }
+                    retorno = true;
+                    if (Character.isDigit(palavra.charAt(i))) {
+                        if (((palavra.charAt(palavra.length() - 1) != '.')
+                                && (palavra.charAt(palavra.length() - 1) != ','))) {
+                            retorno = true;
+                        } else {
+                            retorno = false;
+                        }
+                    } else {
+                        retorno = false;
+                    }
+                } else {
+                    retorno = false;
+                    break;
+                }
+            }
+        }
+        if (cont > 1) {
+            retorno = false;
+        }
+        return retorno;
+    }
+
+    public boolean verificarReal(String palavra) {
+        boolean retorno = false;
+        for (int i = 0; i < palavra.length(); i++) {
+            if ((palavra.charAt(i) == ',') || (palavra.charAt(i) == '.') && (i != palavra.length() - 1)) {
+                retorno = true;
+                break;
+            } else {
+                retorno = false;
+            }
+        }
+        return retorno;
+    }
 }

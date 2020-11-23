@@ -1458,6 +1458,7 @@ public class TabelasGOTOeACTION {
         valor.put(72, 47);
         valor.put(73, 47);
         valor.put(74, 47);
+        valor.put(80, 62);
         GOTO[49] = valor;
         
         valor = new HashMap();
