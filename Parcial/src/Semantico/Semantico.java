@@ -125,7 +125,7 @@ public class Semantico {
     public boolean verficaTipo() {
         String val = "";
         HashMap<String, String> a = new HashMap();
-        boolean aux = true;
+        boolean aux = false;
         for (int i = tabelaSimb.size() - at; i < tabelaSimb.size() - 1; i++) {
             a = (HashMap<String, String>) tabelaSimb.get(i);
             val = a.get("" + i);
@@ -189,7 +189,12 @@ public class Semantico {
                     if (val.equals("true") || val.equals("false")) {
                         aux = true;
                     }
-                    //////////////////Fazer validação de expressões lógicas
+                    if (val.equals(">") || val.equals("<")
+                            ||val.equals(">=") || val.equals("<=")
+                            ||val.equals("==") || val.equals("||")
+                            ||val.equals("&&") || val.equals("!")|| val.equals("<>")) {
+                        aux = true;
+                    }
                 }
                 //String qualquer
                 if (tipoAt.equals("str")) {
@@ -201,6 +206,7 @@ public class Semantico {
                 }
             }
         }
+        ///PERSONALIZAR MENSAGENS DE RETORNO
         return aux;
     }
 
