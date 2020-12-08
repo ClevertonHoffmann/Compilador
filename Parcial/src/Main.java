@@ -29,20 +29,7 @@ public class Main {
     System.out.println(l.getT().getListatokens());
     Sintatico s = new Sintatico(l.getT());
     s.analisador();
-        
-        
-//        TokenFactoryList t = new TokenFactoryList();
-//        
-//        t.setListatokens("a", "", 0);
-//        t.setListatokens("a", "", 1);
-//        t.setListatokens("c", "", 2);
-//        t.setListatokens("b", "", 3);
-//        t.setListatokens("b", "", 4);
-//        t.setListatokens("$", "", 5);
-//                
-//        Sintatico s = new Sintatico(t);
-//        s.analisador();
-
+    
     }
     
 }
