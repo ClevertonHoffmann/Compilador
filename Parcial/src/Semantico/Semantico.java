@@ -12,11 +12,11 @@ import java.util.Stack;
  */
 public class Semantico {
 
-    public Stack tabelaSimb = new Stack();
-    int at = 0;
-    int dec = 0;
-    String tipo = "";
-    String tipoAt = "";
+    private Stack tabelaSimb = new Stack();
+    private int at = 0;
+    private int dec = 0;
+    private String tipo = "";
+    private String tipoAt = "";
 
     /**
      * Médoto de análise semântica
@@ -29,7 +29,7 @@ public class Semantico {
         String token = tok.getToken().getTok();
 
         //---Inicio Bloco 0 - Salva valores do lexema, posição, token, tipo, expressao na tabela de símbolos em formato de pilha
-        tabelaSimb.add(criaVariavel(tok.getToken().getLex(), Integer.toString(tok.getToken().getPos()),tok.getToken().getTok(),"",""));
+        tabelaSimb.add(criaVariavel(tok.getToken().getLex(), Integer.toString(tok.getToken().getPos()),tok.getToken().getTok(),"","", String.valueOf(p)));
         //---Fim Bloco 0
 
         //---Inicio Bloco 1  - Verificação de duplicidade na declaração das variáveis
@@ -89,15 +89,17 @@ public class Semantico {
       * @param tok
       * @param tip
       * @param exp
+      * @param est
       * @return Array com as informações para serem adicionadas na tabela de símbolos
       */
-    public ArrayList<String> criaVariavel(String lex, String pos, String tok, String tip, String exp) {
+    public ArrayList<String> criaVariavel(String lex, String pos, String tok, String tip, String exp, String est) {
         ArrayList<String> tab = new ArrayList();
         tab.add(lex);
         tab.add(pos);
         tab.add(tok);
         tab.add(tip);
         tab.add(exp);
+        tab.add(est);
         return tab;
     }
       
@@ -254,6 +256,7 @@ public class Semantico {
             }
             atribuicao = atribuicao.concat(val);
         }
+        //Adiciona o tipo e a expressão de atribuição que corresponde a variável
         a = (ArrayList<String>) tabelaSimb.get(tabelaSimb.size()-at-2);
         a.set(3, tipoAt);
         a.set(4, atribuicao);
@@ -358,4 +361,13 @@ public class Semantico {
         }
         return true;
     }
+
+    public Stack getTabelaSimb() {
+        return tabelaSimb;
+    }
+
+    public void setTabelaSimb(Stack tabelaSimb) {
+        this.tabelaSimb = tabelaSimb;
+    }
+    
 }

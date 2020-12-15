@@ -2,8 +2,6 @@
  * Classe responsável pela análise sintática
  */
 package SintaticoAscendente;
-
-import GeradorIntermediario.GeradorCodigoIntermediario;
 import Semantico.Semantico;
 import Token.TokenFactoryList;
 import java.util.Stack;
@@ -16,14 +14,15 @@ import java.util.Stack;
 public class Sintatico {
 
     private TabelasGOTOeACTION t;
-    Stack p = new Stack();
-    TokenFactoryList listaTok;
-    Semantico s = new Semantico();
-    GeradorCodigoIntermediario g = new GeradorCodigoIntermediario();
+    private Stack p;
+    private TokenFactoryList listaTok;
+    private Semantico semantic;
 
     public Sintatico(TokenFactoryList to) {
         this.t = new TabelasGOTOeACTION();
         this.listaTok = to;
+        this.p = new Stack();
+        this.semantic = new Semantico();
     }
 
     public boolean analisador() {
@@ -35,6 +34,7 @@ public class Sintatico {
             try {
                 System.out.println(p);
                 System.out.println(listaTok.getListatokens().get(i).getToken().getTok());
+            //    System.out.println(listaTok.getListatokens().get(i).getToken().getTok());
                 if (((String) t.getACTION().get(
                         (int) p.peek() //pega o último elemento da pilha
                 ).get(
@@ -43,7 +43,8 @@ public class Sintatico {
                     p.push(Integer.parseInt(((String) t.getACTION().get((int) p.peek()).get( //empilha na pilha
                             listaTok.getListatokens().get(i).getToken().getTok() //Token entrada
                     )).substring(1)));
-                    if (!s.acaoSemantica((int) p.peek(), listaTok.getListatokens().get(i))) {
+                    //Insere ação semântica conforme símbolo empilhado na pilha
+                    if (!semantic.acaoSemantica((int) p.peek(), listaTok.getListatokens().get(i))) {
                         return false;
                     }
                     i++;
@@ -64,9 +65,6 @@ public class Sintatico {
                 } else if (((String) t.getACTION().get((int) p.peek()).get(
                         listaTok.getListatokens().get(i).getToken().getTok() //Token entrada
                 )).equals("acc")) { //fim da gramática
-                    if (!g.geraCodigo(s)) {
-                        return false;
-                    }
                     System.out.println("Linguagem aceita");
                     return true;
                 } else {
@@ -79,6 +77,38 @@ public class Sintatico {
                 return false;
             }
         }
+    }
+
+    public TabelasGOTOeACTION getT() {
+        return t;
+    }
+
+    public void setT(TabelasGOTOeACTION t) {
+        this.t = t;
+    }
+
+    public Stack getP() {
+        return p;
+    }
+
+    public void setP(Stack p) {
+        this.p = p;
+    }
+
+    public TokenFactoryList getListaTok() {
+        return listaTok;
+    }
+
+    public void setListaTok(TokenFactoryList listaTok) {
+        this.listaTok = listaTok;
+    }
+
+    public Semantico getSemantic() {
+        return semantic;
+    }
+
+    public void setSemantic(Semantico semantic) {
+        this.semantic = semantic;
     }
 
 }

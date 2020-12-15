@@ -1,4 +1,5 @@
 
+import SintaticoAscendente.GeradorArvoreSintatica;
 import Lexico.Lexico;
 import SintaticoAscendente.Sintatico;
 import Token.TokenFactoryList;
@@ -29,6 +30,7 @@ public class Main {
     System.out.println(l.getT().getListatokens());
     Sintatico s = new Sintatico(l.getT());
     s.analisador();
+    
     
     }
     

@@ -1185,7 +1185,6 @@ public class TabelasGOTOeACTION {
         valor = new HashMap();
         valor.put(4, 8);
         valor.put(7, 8);
-        
         valor.put(18, 8);
         valor.put(20, 8);
         valor.put(85, 8);
@@ -1240,8 +1239,8 @@ public class TabelasGOTOeACTION {
         GOTO[13] = valor;
         
         valor = new HashMap();
-        valor.put(4, 6); //ok
-        valor.put(7, 16); //ok
+        valor.put(4, 6); 
+        valor.put(7, 16); 
         GOTO[7] = valor;
         
         valor = new HashMap();
@@ -1278,13 +1277,11 @@ public class TabelasGOTOeACTION {
         GOTO[22] = valor;
         
         valor = new HashMap();
-        valor.put(18, 20); //ok
-//        valor.put(36, 85);
-//        valor.put(85, 32);
-        valor.put(108, 110); //ok
-        valor.put(53, 78); //ok
-        valor.put(111, 113); //ok
-        valor.put(65, 85); //ok
+        valor.put(18, 20); 
+        valor.put(108, 110); 
+        valor.put(53, 78); 
+        valor.put(111, 113); 
+        valor.put(65, 85); 
         GOTO[21] = valor;
         
         valor = new HashMap();
@@ -1295,8 +1292,8 @@ public class TabelasGOTOeACTION {
         GOTO[23] = valor;
         
         valor = new HashMap();
-        valor.put(85, 32); //ok
-        valor.put(65, 21); //ok
+        valor.put(85, 32); 
+        valor.put(65, 21);
         GOTO[24] = valor;
         
         valor = new HashMap();
@@ -1328,14 +1325,11 @@ public class TabelasGOTOeACTION {
         valor.put(53, 23);
         valor.put(30, 53);
         valor.put(96, 107);
-        valor.put(105, 107); //ok
+        valor.put(105, 107);
         GOTO[63] = valor;
         
         valor = new HashMap();
-//        valor.put(18, 22);
-//        valor.put(15, 18);
-//        valor.put(96, 107);
-        valor.put(105, 107); //ok
+        valor.put(105, 107);
         GOTO[64] = valor;
         
         valor = new HashMap();
@@ -1499,7 +1493,8 @@ public class TabelasGOTOeACTION {
         valor = new HashMap();
         valor.put(33, 62);
         GOTO[61] = valor;
-        /////////////////
+        
+        
         valor = new HashMap();
         valor.put(33, 60);
         valor.put(80, 60);
@@ -1699,8 +1694,7 @@ public class TabelasGOTOeACTION {
         GOTO[95] = valor;
         
         valor = new HashMap();
-       // valor.put(18, 20);
-        valor.put(20, 25); //ok
+        valor.put(20, 25);
         GOTO[98] = valor;
         
         valor = new HashMap();
@@ -1756,8 +1750,8 @@ public class TabelasGOTOeACTION {
         valor = new HashMap();
         valor.put(18, 20);
         valor.put(20, 32);
-        valor.put(85, 24); //ok
-        valor.put(65, 24); //ok
+        valor.put(85, 24); 
+        valor.put(65, 24); 
         GOTO[114] = valor;
         
     }

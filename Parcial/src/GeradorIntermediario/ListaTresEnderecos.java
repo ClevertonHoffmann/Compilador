@@ -9,6 +9,6 @@ package GeradorIntermediario;
  *
  * @author Cleverton
  */
-public class GeradorCodigoIntermediario {
+public class ListaTresEnderecos {
     
 }
