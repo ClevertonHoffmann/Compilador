@@ -5,10 +5,20 @@
  */
 package GeradorIntermediario;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Cleverton
  */
 public class ListaTresEnderecos {
+
+    
+    public ArrayList<ArrayList<Endereco>> listaTresEnderecos = new ArrayList<>();
+
+    @Override
+    public String toString() {
+        return "ListaTresEnderecos{\n" + listaTresEnderecos.toString() + "\n}";
+    }
     
 }
