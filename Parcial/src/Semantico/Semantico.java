@@ -27,7 +27,7 @@ public class Semantico {
      */
     public boolean acaoSemantica(int p, InterfaceFlyweight tok) {
         String token = tok.getToken().getTok();
-
+        //Tab - Variáveis e tipos, constantes
         //---Inicio Bloco 0 - Salva valores do lexema, posição, token, tipo, expressao na tabela de símbolos em formato de pilha
         tabelaSimb.add(criaVariavel(tok.getToken().getLex(), Integer.toString(tok.getToken().getPos()),tok.getToken().getTok(),"","", String.valueOf(p)));
         //---Fim Bloco 0
