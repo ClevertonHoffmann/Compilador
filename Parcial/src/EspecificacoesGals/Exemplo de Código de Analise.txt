@@ -1,0 +1,27 @@
+//Exemplos de códigos para análise
+
+programa:begin (int a; boolean b; int c;) { int d; a = (2*2+2); if(a>b) then { a = (2*2+2); } else { a = 9+4-5+6*7; int h; } boolean e; for (a=2;(a<b);a++;){a = (2*2+2); } while (b>a) { int f; a = (2*2+2); for (a=2;(a<b);a--;){ a = (2*2+2); } } } end
+
+programa:begin (int a; int b; int c;) { int d; a = (2*2+2); if(a>b) then { b = (2*2+2); } else { c = 9+4-5+6*7; int h; } boolean e; for (a=2;(a<b);a++;){d = (2*2+2); } while (b>a) { int y; y = (2*2+2); int f; for (a=2;(a<b);a--;){ f = (2*2+2); } } } end 
+
+
+programa:begin (int a; boolean d; int c;) { while c {a=0+3-4-8;} }end
+
+programa:begin (int a; boolean b; int c;) { for (a=2;(a<b);a++;){a = (2*2+2); }} end
+
+programa:begin (int a; boolean b; int c;) { if(a>b) then { a = (2*2+2); } else { a = 9+4-5-6*7; int h; } } end
+
+programa:begin (int a;) { int d; a = (2*2+2); if(a>b) then { a = (2*2+2); } while (b>a) { for (a=2;(a<b);a--;){ a = (2*2+2); } } } end
+
+
+
+//Para análise semântica com problemas
+
+//Com problema na análise semantica b definido duas vezes
+programa:begin (int b; boolean b; int c;) { while a {a=0;} }end
+
+//Com problema na análise semantica a não definida
+programa:begin (int b; boolean d; int c;) { while (4) { a=2+3; int b; a++; int c;} }end
+
+//Tipo int não pode receber uma divisão
+programa:begin (int a; boolean d; int c;) { while c {a=0+3-4/8;} }end
